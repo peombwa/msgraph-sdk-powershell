@@ -361,4 +361,22 @@ directive:
         }
         return $;
       }
+  # Add AdditionalData property to base types.
+  - from: source-file-csharp
+    where: $
+    transform: >
+      if (!$documentPath.match(/generated%5Capi%5CModels%5CMicrosoftGraph\w*.cs/gm))
+      {
+        return $;
+      } else {
+        let interfaceRegex = /(^\s*)(internal\s*partial\s*interface\s*IMicrosoftGraph(.*)Internal\s*{$)/gmi;
+        $ = $.replace(interfaceRegex, '$1public partial class MicrosoftGraph$3\n$1{\n$1\tpublic System.Collections.Hashtable AdditionalData { get; set; }'
+        +
+        '\n$1\tpartial void BeforeFromJson(Microsoft.Graph.PowerShell.Runtime.Json.JsonObject json, ref bool returnNow){returnNow = json.IsJsonObjectNull();}'
+        +
+        '\n$1\tpartial void AfterFromJson(Microsoft.Graph.PowerShell.Runtime.Json.JsonObject json){this.AdditionalData = json.AddAdditionalData(this);}'
+        +
+        '\n$1}\n\n$1$2\n');
+        return $;
+      }
 ```
