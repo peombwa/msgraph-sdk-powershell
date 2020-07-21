@@ -22,7 +22,7 @@ variables:
 jobs:
 - job: MSGraphPSSDKGeneration
   displayName: MS Graph PS SDK Beta Generation
-  timeoutInMinutes: 300
+  timeoutInMinutes: 360
   pool:
     name: Microsoft Graph
     demands:
