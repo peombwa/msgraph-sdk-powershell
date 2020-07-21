@@ -34,6 +34,12 @@ jobs:
     inputs:
      debugMode: false
   
+  - task: Npm@1
+    displayName: 'Install AutoRest'
+    inputs:
+      command: 'custom'
+      customCommand: 'install -g autorest'
+      
   - task: PowerShell@2
     displayName: 'Build Auth Modules'
     inputs:
