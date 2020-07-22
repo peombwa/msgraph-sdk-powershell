@@ -69,7 +69,7 @@ namespace Microsoft.Graph.PowerShell.Authentication.Cmdlets
             ParameterSetName = Constants.UserParameterSet,
             Position = 4,
             HelpMessage = "Optional Custom Headers")]
-        public IDictionary<string, string> Headers { get; set; }
+        public IDictionary Headers { get; set; }
 
         /// <summary>
         ///     Relative or absolute path where the response body will be saved.
@@ -344,7 +344,7 @@ namespace Microsoft.Graph.PowerShell.Authentication.Cmdlets
         {
             // before creating the web request,
             // preprocess Body if content is a dictionary and method is GET (set as query)
-            if (Method == GraphRequestMethod.GET && LanguagePrimitives.TryConvertTo(Body, out IDictionary bodyAsDictionary))
+            if (Method == GraphRequestMethod.GET && Body != null && LanguagePrimitives.TryConvertTo(Body, out IDictionary bodyAsDictionary))
             {
                 var uriBuilder = new UriBuilder(uri);
                 if (uriBuilder.Query != null && uriBuilder.Query.Length > 1)
@@ -768,9 +768,9 @@ namespace Microsoft.Graph.PowerShell.Authentication.Cmdlets
             // Store the other supplied headers
             if (Headers != null)
             {
-                foreach (var key in Headers.Keys)
+                foreach (string key in Headers.Keys)
                 {
-                    var value = Headers[key];
+                    string value = Headers[key] as string;
 
                     // null is not valid value for header.
                     // We silently ignore header if value is null.
