@@ -133,6 +133,15 @@ namespace Microsoft.Graph.PowerShell.Authentication.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cannot convert the JSON string because a dictionary that was converted from the string contains the duplicated key &apos;{0}&apos;..
+        /// </summary>
+        internal static string DuplicateKeysInJsonString {
+            get {
+                return ResourceManager.GetString("DuplicateKeysInJsonString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The cmdlet cannot run because the following conflicting parameters are specified: GraphRequestSession and SessionVariable. Specify either GraphRequestSession or SessionVariable, then retry..
         /// </summary>
         internal static string GraphRequestSessionConflict {

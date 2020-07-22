@@ -411,14 +411,16 @@ namespace Microsoft.Graph.PowerShell.Authentication.Cmdlets
 
                     // NOTE: Tests use this verbose output to verify the encoding.
                     WriteVerbose(Resources.ContentEncodingVerboseMessage.FormatCurrentCulture(encodingVerboseName));
-                    var convertSuccess = str.TryConvert<Hashtable>(out var obj, ref ex);
-                    if (!convertSuccess)
+
+                    if (str.TryConvertToJson(out object obj, ref ex))
+                    {
+                        WriteObject(obj);
+                    }
+                    else
                     {
                         // fallback to string
-                        obj = str;
+                        WriteObject(str);
                     }
-
-                    WriteObject(obj);
                 }
             }
 

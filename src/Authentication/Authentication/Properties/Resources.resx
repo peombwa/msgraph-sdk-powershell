@@ -196,4 +196,7 @@
   <data name="InferFileNameOutFilePathConflict" xml:space="preserve">
     <value>The cmdlet cannot run because the following conflicting parameters are specified: {0} and {1}. Specify either {0} or {1} then retry.</value>
   </data>
+  <data name="DuplicateKeysInJsonString" xml:space="preserve">
+    <value>Cannot convert the JSON string because a dictionary that was converted from the string contains the duplicated key '{0}'.</value>
+  </data>
 </root>
