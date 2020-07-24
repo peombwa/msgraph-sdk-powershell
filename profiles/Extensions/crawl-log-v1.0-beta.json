@@ -1,0 +1,13 @@
+{
+  "operations": {
+    "/schemaExtensions/{schemaExtension-id}": {
+      "originalLocation": "/openApiDocs/beta/Extensions.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/schemaExtensions": {
+      "originalLocation": "/openApiDocs/beta/Extensions.yml",
+      "apiVersion": "v1.0-beta"
+    }
+  },
+  "resources": []
+}

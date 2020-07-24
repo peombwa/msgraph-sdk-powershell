@@ -1,0 +1,281 @@
+{
+  "operations": {
+    "/accessReviews/{accessReview-id}": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedRoleAssignments/microsoft.graph.my()": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedApproval/{privilegedApproval-id}/request": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedApproval/microsoft.graph.myRequests()": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedRoleAssignmentRequests/{privilegedRoleAssignmentRequest-id}/microsoft.graph.cancel": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/programs/{program-id}": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/accessReviews/{accessReview-id}/decisions/{accessReviewDecision-id}": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedApproval/{privilegedApproval-id}/roleInfo": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/identityGovernance/entitlementManagement": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedAccess/{privilegedAccess-id}/roleAssignments": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedRoleAssignmentRequests": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedRoleAssignments": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/accessReviews/{accessReview-id}/decisions": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/programControlTypes/{programControlType-id}": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/accessReviews/{accessReview-id}/myDecisions/{accessReviewDecision-id}": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/programs/{program-id}/controls": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedRoles/{privilegedRole-id}/microsoft.graph.selfActivate": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedAccess/{privilegedAccess-id}/roleSettings/{governanceRoleSetting-id}": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/accessReviews/{accessReview-id}/reviewers/{accessReviewReviewer-id}": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/accessReviews/{accessReview-id}/microsoft.graph.stop": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/programControlTypes": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedOperationEvents": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/programs": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedRoleAssignmentRequests/{privilegedRoleAssignmentRequest-id}": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedRoles/{privilegedRole-id}/assignments/{privilegedRoleAssignment-id}": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/agreements/{agreement-id}/files/{agreementFile-id}": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedApproval": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/accessReviews/{accessReview-id}/microsoft.graph.sendReminder": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/programControls/{programControl-id}": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedAccess/{privilegedAccess-id}": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedRoleAssignmentRequests/microsoft.graph.my()": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedRoles/{privilegedRole-id}": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/accessReviews/{accessReview-id}/microsoft.graph.applyDecisions": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedAccess/{privilegedAccess-id}/roleDefinitions/{governanceRoleDefinition-id}": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedRoles": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/programs/{program-id}/controls/{programControl-id}": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedAccess/{privilegedAccess-id}/roleAssignments/{governanceRoleAssignment-id}": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/accessReviews": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedAccess/{privilegedAccess-id}/roleAssignmentRequests/{governanceRoleAssignmentRequest-id}": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedApproval/{privilegedApproval-id}": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/agreements/{agreement-id}": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/businessFlowTemplates": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/accessReviews/{accessReview-id}/reviewers": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/agreements": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedAccess/{privilegedAccess-id}/resources/{governanceResource-id}": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedRoleAssignments/{privilegedRoleAssignment-id}/microsoft.graph.makeEligible": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedRoleAssignments/{privilegedRoleAssignment-id}/roleInfo": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedAccess": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedAccess/{privilegedAccess-id}/roleDefinitions": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedAccess/{privilegedAccess-id}/resources": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/agreements/{agreement-id}/files": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedRoles/{privilegedRole-id}/summary": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/accessReviews/{accessReview-id}/instances/{accessReview-id1}": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/identityGovernance": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedRoleAssignments/{privilegedRoleAssignment-id}": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedRoleAssignmentRequests/{privilegedRoleAssignmentRequest-id}/roleInfo": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedRoles/{privilegedRole-id}/settings": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/businessFlowTemplates/{businessFlowTemplate-id}": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedRoles/{privilegedRole-id}/microsoft.graph.selfDeactivate": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedOperationEvents/{privilegedOperationEvent-id}": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedAccess/{privilegedAccess-id}/roleAssignmentRequests": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/programControls": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedRoleAssignments/{privilegedRoleAssignment-id}/microsoft.graph.makePermanent": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedRoles/{privilegedRole-id}/assignments": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/accessReviews/{accessReview-id}/myDecisions": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/privilegedAccess/{privilegedAccess-id}/roleSettings": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/accessReviews/{accessReview-id}/microsoft.graph.resetDecisions": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/programControls/{programControl-id}/program": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/accessReviews/{accessReview-id}/instances": {
+      "originalLocation": "/openApiDocs/beta/Identity.Governance.yml",
+      "apiVersion": "v1.0-beta"
+    }
+  },
+  "resources": []
+}

@@ -1,145 +1,125 @@
 {
-  "resources": [],
   "operations": {
-    "/communications/calls/{call-id}/participants/microsoft.graph.invite": {
+    "/app/calls/{call-id}/microsoft.graph.transfer": {
       "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
       "apiVersion": "v1.0-beta"
     },
-    "/communications/calls/{call-id}/audioRoutingGroups/{audioRoutingGroup-id}": {
+    "/app/calls/{call-id}/microsoft.graph.recordResponse": {
       "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
       "apiVersion": "v1.0-beta"
     },
-    "/communications/calls/{call-id}/microsoft.graph.record": {
+    "/app/calls/{call-id}/participants/microsoft.graph.invite": {
       "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
       "apiVersion": "v1.0-beta"
     },
-    "/communications/calls/{call-id}/microsoft.graph.redirect": {
+    "/app/calls/{call-id}/microsoft.graph.mute": {
       "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
       "apiVersion": "v1.0-beta"
     },
-    "/communications/calls/{call-id}/microsoft.graph.unmute": {
+    "/app/calls/{call-id}": {
       "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
       "apiVersion": "v1.0-beta"
     },
-    "/communications/calls": {
+    "/app/calls/{call-id}/participants/{participant-id}": {
       "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
       "apiVersion": "v1.0-beta"
     },
-    "/communications/calls/{call-id}/microsoft.graph.cancelMediaProcessing": {
+    "/app/calls/{call-id}/microsoft.graph.unmute": {
       "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
       "apiVersion": "v1.0-beta"
     },
-    "/communications/callRecords/{callRecord-id}/sessions": {
+    "/app/calls/{call-id}/microsoft.graph.playPrompt": {
       "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
       "apiVersion": "v1.0-beta"
     },
-    "/communications/callRecords/{callRecord-id}/sessions/{session-id}": {
+    "/app/calls/{call-id}/microsoft.graph.changeScreenSharingRole": {
       "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
       "apiVersion": "v1.0-beta"
     },
-    "/communications/calls/{call-id}/microsoft.graph.changeScreenSharingRole": {
+    "/app/calls/{call-id}/audioRoutingGroups": {
       "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
       "apiVersion": "v1.0-beta"
     },
-    "/communications/calls/{call-id}/microsoft.graph.mute": {
+    "/app/calls/{call-id}/microsoft.graph.cancelMediaProcessing": {
       "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
       "apiVersion": "v1.0-beta"
     },
-    "/communications/calls/{call-id}/participants/{participant-id}": {
+    "/app/onlineMeetings": {
       "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
       "apiVersion": "v1.0-beta"
     },
-    "/communications/calls/{call-id}": {
+    "/app/calls/{call-id}/microsoft.graph.keepAlive": {
       "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
       "apiVersion": "v1.0-beta"
     },
-    "/communications/calls/{call-id}/microsoft.graph.transfer": {
+    "/app/calls/{call-id}/participants": {
       "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
       "apiVersion": "v1.0-beta"
     },
-    "/communications/calls/{call-id}/participants/microsoft.graph.muteAll": {
+    "/app/onlineMeetings/microsoft.graph.createOrGet": {
       "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
       "apiVersion": "v1.0-beta"
     },
-    "/communications/onlineMeetings/{onlineMeeting-id}": {
+    "/app/calls/{call-id}/participants/microsoft.graph.muteAll": {
       "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
       "apiVersion": "v1.0-beta"
     },
-    "/communications/calls/{call-id}/operations": {
+    "/app/calls/{call-id}/microsoft.graph.record": {
       "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
       "apiVersion": "v1.0-beta"
     },
-    "/communications/callRecords": {
+    "/app/calls/{call-id}/microsoft.graph.updateRecordingStatus": {
       "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
       "apiVersion": "v1.0-beta"
     },
-    "/communications/calls/{call-id}/microsoft.graph.recordResponse": {
+    "/app/calls/microsoft.graph.logTeleconferenceDeviceQuality": {
       "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
       "apiVersion": "v1.0-beta"
     },
-    "/communications/calls/{call-id}/microsoft.graph.subscribeToTone": {
+    "/app/onlineMeetings/{onlineMeeting-id}": {
       "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
       "apiVersion": "v1.0-beta"
     },
-    "/communications/calls/{call-id}/microsoft.graph.playPrompt": {
+    "/app/calls": {
       "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
       "apiVersion": "v1.0-beta"
     },
-    "/communications/microsoft.graph.getPresencesByUserId": {
+    "/app/calls/{call-id}/participants/{participant-id}/microsoft.graph.mute": {
       "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
       "apiVersion": "v1.0-beta"
     },
-    "/communications/calls/{call-id}/microsoft.graph.keepAlive": {
+    "/app/calls/{call-id}/microsoft.graph.answer": {
       "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
       "apiVersion": "v1.0-beta"
     },
-    "/communications/callRecords/{callRecord-id}/sessions/{session-id}/segments/{segment-id}": {
+    "/app/calls/{call-id}/operations": {
       "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
       "apiVersion": "v1.0-beta"
     },
-    "/communications/calls/{call-id}/operations/{commsOperation-id}": {
+    "/app/calls/{call-id}/microsoft.graph.redirect": {
       "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
       "apiVersion": "v1.0-beta"
     },
-    "/communications": {
+    "/app/calls/{call-id}/microsoft.graph.reject": {
       "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
       "apiVersion": "v1.0-beta"
     },
-    "/communications/calls/{call-id}/participants": {
+    "/app/calls/{call-id}/operations/{commsOperation-id}": {
       "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
       "apiVersion": "v1.0-beta"
     },
-    "/communications/onlineMeetings": {
+    "/app/calls/{call-id}/microsoft.graph.subscribeToTone": {
       "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
       "apiVersion": "v1.0-beta"
     },
-    "/communications/calls/{call-id}/microsoft.graph.answer": {
+    "/app": {
       "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
       "apiVersion": "v1.0-beta"
     },
-    "/communications/calls/{call-id}/microsoft.graph.reject": {
-      "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
-      "apiVersion": "v1.0-beta"
-    },
-    "/communications/callRecords/{callRecord-id}/sessions/{session-id}/segments": {
-      "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
-      "apiVersion": "v1.0-beta"
-    },
-    "/communications/calls/{call-id}/participants/{participant-id}/microsoft.graph.mute": {
-      "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
-      "apiVersion": "v1.0-beta"
-    },
-    "/communications/calls/{call-id}/microsoft.graph.updateRecordingStatus": {
-      "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
-      "apiVersion": "v1.0-beta"
-    },
-    "/communications/calls/{call-id}/audioRoutingGroups": {
-      "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
-      "apiVersion": "v1.0-beta"
-    },
-    "/communications/callRecords/{callRecord-id}": {
+    "/app/calls/{call-id}/audioRoutingGroups/{audioRoutingGroup-id}": {
       "originalLocation": "/openApiDocs/beta/CloudCommunications.yml",
       "apiVersion": "v1.0-beta"
     }
-  }
+  },
+  "resources": []
 }
