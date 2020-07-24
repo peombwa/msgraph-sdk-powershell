@@ -36,13 +36,16 @@ $ModuleMapping.Keys | ForEach-Object -Begin { $RequestCount = 0 } -End { Write-H
     if ($RequestCount -eq 0){
         $ForceRefresh = $true
     }
+    $ForceRefresh = $false
 
     try {
         # Download OpenAPI document for module.
         & $DownloadOpenApiDocPS1 -ModuleName $ModuleName -ModuleRegex $ModuleMapping[$ModuleName] -OpenApiDocOutput $OpenApiDocOutput -GraphVersion $GraphVersion -ForceRefresh:$ForceRefresh -RequestCount $RequestCount
     }
     catch {
-        Write-Error $_.Exception
+        if ($BetaGraphVersion) {
+            Write-Error $_.Exception
+        }
     }
     $RequestCount++
 }
