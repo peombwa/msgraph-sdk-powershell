@@ -23,7 +23,7 @@ variables:
 jobs:
 - job: MSGraphPSSDKGeneration
   displayName: MS Graph PS SDK Beta Generation
-  timeoutInMinutes: 600
+  timeoutInMinutes: 360
   pool:
     vmImage: 'windows-latest'
 
@@ -47,14 +47,14 @@ jobs:
     displayName: 'Build Auth Modules'
     inputs:
       filePath: '$(System.DefaultWorkingDirectory)/tools/GenerateAuthenticationModule.ps1'
-      arguments: '-RepositoryApiKey $(Api_Key) -Build -BuildWhenEqual'
+      arguments: '-Build -BuildWhenEqual'
       pwsh: true
   
   - task: PowerShell@2
     displayName: 'Generate and Build Graph Resource Modules'
     inputs:
       filePath: '$(System.DefaultWorkingDirectory)/tools/GenerateModules.ps1'
-      arguments: '-RepositoryApiKey $(Api_Key) -Build'
+      arguments: ' -Build'
       pwsh: true
     
   - task: PowerShell@2
