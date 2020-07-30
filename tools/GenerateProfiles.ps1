@@ -61,11 +61,11 @@ try {
                 Write-Host "Telemetry written at $telemetryDir" -ForegroundColor Blue
 
                 # Get profile.
-                $profile =  @{resources = @{}; operations = @{}}
+                $profileEntity =  @{resources = @{}; operations = @{}}
                 foreach ($operation in $crawlResult.operations.keys) {
-                    $profile.operations[$operation] = $crawlResult.operations[$operation].apiVersion
+                    $profileEntity.operations[$operation] = $crawlResult.operations[$operation].apiVersion
                 }
-                $profilesNode = @{profiles = @{ $profileName = $profile}}
+                $profilesNode = @{profiles = @{ $profileName = $profileEntity}}
                 $profilesInYaml = $profilesNode | ConvertTo-Yaml
                 $profileReadMeContent = @"
 # Microsoft Graph $profileName Profile

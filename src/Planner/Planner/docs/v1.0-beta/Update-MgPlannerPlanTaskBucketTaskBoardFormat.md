@@ -229,9 +229,12 @@ BODYPARAMETER <IMicrosoftGraphPlannerBucketTaskBoardTaskFormat1>: plannerBucketT
   - `[OrderHint <String>]`: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as outlined here.
 
 INPUTOBJECT <IPlannerIdentity>: Identity Parameter
+  - `[GroupId <String>]`: key: group-id of group
   - `[PlannerBucketId <String>]`: key: plannerBucket-id of plannerBucket
+  - `[PlannerDeltaId <String>]`: key: plannerDelta-id of plannerDelta
   - `[PlannerPlanId <String>]`: key: plannerPlan-id of plannerPlan
   - `[PlannerTaskId <String>]`: key: plannerTask-id of plannerTask
+  - `[UserId <String>]`: key: user-id of user
 
 ## RELATED LINKS
 

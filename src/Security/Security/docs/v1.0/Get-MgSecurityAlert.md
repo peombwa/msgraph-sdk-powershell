@@ -14,8 +14,9 @@ Get alerts from Security
 
 ### List1 (Default)
 ```
-Get-MgSecurityAlert [-Count] [-ExpandProperty <String[]>] [-Filter <String>] [-PageSize <Int32>]
- [-Property <String[]>] [-Search <String>] [-Skip <Int32>] [-Sort <String[]>] [<CommonParameters>]
+Get-MgSecurityAlert [-Count] [-ExpandProperty <String[]>] [-Filter <String>] [-Property <String[]>]
+ [-Search <String>] [-Skip <Int32>] [-Sort <String[]>] [-Top <Int32>] [-All] [-PageSize <Int32>]
+ [<CommonParameters>]
 ```
 
 ### Get1
@@ -63,6 +64,21 @@ Parameter Sets: Get1
 Aliases:
 
 Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -All
+List all pages.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+Parameter Sets: List1
+Aliases:
+
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -131,12 +147,12 @@ Accept wildcard characters: False
 ```
 
 ### -PageSize
-Show only the first n items
+Sets the page size of results.
 
 ```yaml
 Type: System.Int32
 Parameter Sets: List1
-Aliases: Top, Limit
+Aliases:
 
 Required: False
 Position: Named
@@ -197,6 +213,21 @@ Order items by property values
 Type: System.String[]
 Parameter Sets: List1
 Aliases: OrderBy
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Top
+Show only the first n items
+
+```yaml
+Type: System.Int32
+Parameter Sets: List1
+Aliases: Limit
 
 Required: False
 Position: Named

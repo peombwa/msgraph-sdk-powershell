@@ -1231,72 +1231,6 @@ paths:
         default:
           $ref: '#/components/responses/error'
       x-ms-docs-operation-type: operation
-  /informationProtection:
-    get:
-      tags:
-        - informationProtection.informationProtection
-      summary: Get informationProtection
-      operationId: informationProtection.informationProtection_GetInformationProtection
-      parameters:
-        - name: $select
-          in: query
-          description: Select properties to be returned
-          style: form
-          explode: false
-          schema:
-            uniqueItems: true
-            type: array
-            items:
-              enum:
-                - id
-                - threatAssessmentRequests
-              type: string
-        - name: $expand
-          in: query
-          description: Expand related entities
-          style: form
-          explode: false
-          schema:
-            uniqueItems: true
-            type: array
-            items:
-              enum:
-                - '*'
-                - threatAssessmentRequests
-              type: string
-      responses:
-        '200':
-          description: Retrieved entity
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/microsoft.graph.informationProtection'
-          links:
-            threatAssessmentRequests:
-              operationId: informationProtection.GetThreatAssessmentRequests
-              parameters:
-                threatAssessmentRequest-id: $response.body#/id
-        default:
-          $ref: '#/components/responses/error'
-      x-ms-docs-operation-type: operation
-    patch:
-      tags:
-        - informationProtection.informationProtection
-      summary: Update informationProtection
-      operationId: informationProtection.informationProtection_UpdateInformationProtection
-      requestBody:
-        description: New property values
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/microsoft.graph.informationProtection'
-        required: true
-      responses:
-        '204':
-          description: Success
-        default:
-          $ref: '#/components/responses/error'
-      x-ms-docs-operation-type: operation
   /informationProtection/threatAssessmentRequests:
     get:
       tags:
@@ -2535,6 +2469,159 @@ paths:
         default:
           $ref: '#/components/responses/error'
       x-ms-docs-operation-type: operation
+  /oauth2PermissionGrants/microsoft.graph.delta():
+    get:
+      tags:
+        - oauth2PermissionGrants.Functions
+      summary: Invoke function delta
+      operationId: oauth2PermissionGrants_delta
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/microsoft.graph.oAuth2PermissionGrant'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: function
+  '/organization/{organization-id}/certificateBasedAuthConfiguration':
+    get:
+      tags:
+        - organization.certificateBasedAuthConfiguration
+      summary: Get certificateBasedAuthConfiguration from organization
+      operationId: organization_ListCertificateBasedAuthConfiguration
+      parameters:
+        - name: organization-id
+          in: path
+          description: 'key: organization-id of organization'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: organization
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - id
+                - id desc
+                - certificateAuthorities
+                - certificateAuthorities desc
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - id
+                - certificateAuthorities
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                title: Collection of certificateBasedAuthConfiguration
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/microsoft.graph.certificateBasedAuthConfiguration'
+                  '@odata.nextLink':
+                    type: string
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+  '/organization/{organization-id}/certificateBasedAuthConfiguration/{certificateBasedAuthConfiguration-id}':
+    get:
+      tags:
+        - organization.certificateBasedAuthConfiguration
+      summary: Get certificateBasedAuthConfiguration from organization
+      operationId: organization_GetCertificateBasedAuthConfiguration
+      parameters:
+        - name: organization-id
+          in: path
+          description: 'key: organization-id of organization'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: organization
+        - name: certificateBasedAuthConfiguration-id
+          in: path
+          description: 'key: certificateBasedAuthConfiguration-id of certificateBasedAuthConfiguration'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: certificateBasedAuthConfiguration
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - id
+                - certificateAuthorities
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.certificateBasedAuthConfiguration'
+        default:
+          $ref: '#/components/responses/error'
   /policies:
     get:
       tags:
@@ -2558,6 +2645,8 @@ paths:
                 - homeRealmDiscoveryPolicies
                 - tokenIssuancePolicies
                 - tokenLifetimePolicies
+                - identitySecurityDefaultsEnforcementPolicy
+                - conditionalAccessPolicies
               type: string
         - name: $expand
           in: query
@@ -2575,6 +2664,8 @@ paths:
                 - homeRealmDiscoveryPolicies
                 - tokenIssuancePolicies
                 - tokenLifetimePolicies
+                - identitySecurityDefaultsEnforcementPolicy
+                - conditionalAccessPolicies
               type: string
       responses:
         '200':
@@ -2604,6 +2695,14 @@ paths:
               operationId: policies.GetTokenLifetimePolicies
               parameters:
                 tokenLifetimePolicy-id: $response.body#/id
+            identitySecurityDefaultsEnforcementPolicy:
+              operationId: policies.GetIdentitySecurityDefaultsEnforcementPolicy
+              parameters:
+                identitySecurityDefaultsEnforcementPolicy-id: $response.body#/id
+            conditionalAccessPolicies:
+              operationId: policies.GetConditionalAccessPolicies
+              parameters:
+                conditionalAccessPolicy-id: $response.body#/id
         default:
           $ref: '#/components/responses/error'
       x-ms-docs-operation-type: operation
@@ -3003,6 +3102,203 @@ paths:
         default:
           $ref: '#/components/responses/error'
       x-ms-docs-operation-type: operation
+  /policies/conditionalAccessPolicies:
+    get:
+      tags:
+        - policies.conditionalAccessPolicy
+      summary: Get conditionalAccessPolicies from policies
+      operationId: policies_ListConditionalAccessPolicies
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/count'
+        - name: $orderby
+          in: query
+          description: Order items by property values
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - id
+                - id desc
+                - createdDateTime
+                - createdDateTime desc
+                - modifiedDateTime
+                - modifiedDateTime desc
+                - displayName
+                - displayName desc
+                - description
+                - description desc
+                - state
+                - state desc
+                - conditions
+                - conditions desc
+                - grantControls
+                - grantControls desc
+                - sessionControls
+                - sessionControls desc
+              type: string
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - id
+                - createdDateTime
+                - modifiedDateTime
+                - displayName
+                - description
+                - state
+                - conditions
+                - grantControls
+                - sessionControls
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                title: Collection of conditionalAccessPolicy
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/microsoft.graph.conditionalAccessPolicy'
+                  '@odata.nextLink':
+                    type: string
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-pageable:
+        nextLinkName: '@odata.nextLink'
+        operationName: listMore
+      x-ms-docs-operation-type: operation
+    post:
+      tags:
+        - policies.conditionalAccessPolicy
+      summary: Create new navigation property to conditionalAccessPolicies for policies
+      operationId: policies_CreateConditionalAccessPolicies
+      requestBody:
+        description: New navigation property
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.conditionalAccessPolicy'
+        required: true
+      responses:
+        '201':
+          description: Created navigation property.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.conditionalAccessPolicy'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  '/policies/conditionalAccessPolicies/{conditionalAccessPolicy-id}':
+    get:
+      tags:
+        - policies.conditionalAccessPolicy
+      summary: Get conditionalAccessPolicies from policies
+      operationId: policies_GetConditionalAccessPolicies
+      parameters:
+        - name: conditionalAccessPolicy-id
+          in: path
+          description: 'key: conditionalAccessPolicy-id of conditionalAccessPolicy'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: conditionalAccessPolicy
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - id
+                - createdDateTime
+                - modifiedDateTime
+                - displayName
+                - description
+                - state
+                - conditions
+                - grantControls
+                - sessionControls
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.conditionalAccessPolicy'
+        default:
+          $ref: '#/components/responses/error'
+    patch:
+      tags:
+        - policies.conditionalAccessPolicy
+      summary: Update the navigation property conditionalAccessPolicies in policies
+      operationId: policies_UpdateConditionalAccessPolicies
+      parameters:
+        - name: conditionalAccessPolicy-id
+          in: path
+          description: 'key: conditionalAccessPolicy-id of conditionalAccessPolicy'
+          required: true
+          schema:
+            type: string
+          x-ms-docs-key-type: conditionalAccessPolicy
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.conditionalAccessPolicy'
+        required: true
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
   /policies/homeRealmDiscoveryPolicies:
     get:
       tags:
@@ -3185,6 +3481,68 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/microsoft.graph.homeRealmDiscoveryPolicy'
+        required: true
+      responses:
+        '204':
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+  /policies/identitySecurityDefaultsEnforcementPolicy:
+    get:
+      tags:
+        - policies.identitySecurityDefaultsEnforcementPolicy
+      summary: Get identitySecurityDefaultsEnforcementPolicy from policies
+      operationId: policies_GetIdentitySecurityDefaultsEnforcementPolicy
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - id
+                - deletedDateTime
+                - description
+                - displayName
+                - isEnabled
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        '200':
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.identitySecurityDefaultsEnforcementPolicy'
+        default:
+          $ref: '#/components/responses/error'
+    patch:
+      tags:
+        - policies.identitySecurityDefaultsEnforcementPolicy
+      summary: Update the navigation property identitySecurityDefaultsEnforcementPolicy in policies
+      operationId: policies_UpdateIdentitySecurityDefaultsEnforcementPolicy
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.identitySecurityDefaultsEnforcementPolicy'
         required: true
       responses:
         '204':
@@ -3895,20 +4253,6 @@ components:
         name: string
         clientId: string
         clientSecret: string
-    microsoft.graph.informationProtection:
-      allOf:
-        - $ref: '#/components/schemas/microsoft.graph.entity'
-        - title: informationProtection
-          type: object
-          properties:
-            threatAssessmentRequests:
-              type: array
-              items:
-                $ref: '#/components/schemas/microsoft.graph.threatAssessmentRequest'
-      example:
-        id: string (identifier)
-        threatAssessmentRequests:
-          - '@odata.type': microsoft.graph.threatAssessmentRequest
     microsoft.graph.threatAssessmentRequest:
       allOf:
         - $ref: '#/components/schemas/microsoft.graph.entity'
@@ -4675,6 +5019,21 @@ components:
         principalId: string
         resourceId: string
         scope: string
+    microsoft.graph.certificateBasedAuthConfiguration:
+      allOf:
+        - $ref: '#/components/schemas/microsoft.graph.entity'
+        - title: certificateBasedAuthConfiguration
+          type: object
+          properties:
+            certificateAuthorities:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.certificateAuthority'
+              description: Collection of certificate authorities which creates a trusted certificate chain.
+      example:
+        id: string (identifier)
+        certificateAuthorities:
+          - '@odata.type': microsoft.graph.certificateAuthority
     microsoft.graph.policyRoot:
       allOf:
         - $ref: '#/components/schemas/microsoft.graph.entity'
@@ -4701,6 +5060,12 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/microsoft.graph.tokenLifetimePolicy'
+            identitySecurityDefaultsEnforcementPolicy:
+              $ref: '#/components/schemas/microsoft.graph.identitySecurityDefaultsEnforcementPolicy'
+            conditionalAccessPolicies:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.conditionalAccessPolicy'
       example:
         id: string (identifier)
         activityBasedTimeoutPolicies:
@@ -4713,6 +5078,10 @@ components:
           - '@odata.type': microsoft.graph.tokenIssuancePolicy
         tokenLifetimePolicies:
           - '@odata.type': microsoft.graph.tokenLifetimePolicy
+        identitySecurityDefaultsEnforcementPolicy:
+          '@odata.type': microsoft.graph.identitySecurityDefaultsEnforcementPolicy
+        conditionalAccessPolicies:
+          - '@odata.type': microsoft.graph.conditionalAccessPolicy
     microsoft.graph.activityBasedTimeoutPolicy:
       allOf:
         - $ref: '#/components/schemas/microsoft.graph.stsPolicy'
@@ -4745,6 +5114,52 @@ components:
         isOrganizationDefault: true
         appliesTo:
           - '@odata.type': microsoft.graph.directoryObject
+    microsoft.graph.conditionalAccessPolicy:
+      allOf:
+        - $ref: '#/components/schemas/microsoft.graph.entity'
+        - title: conditionalAccessPolicy
+          type: object
+          properties:
+            createdDateTime:
+              pattern: '^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$'
+              type: string
+              description: 'The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: ''2014-01-01T00:00:00Z''. Readonly.'
+              format: date-time
+              nullable: true
+            modifiedDateTime:
+              pattern: '^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$'
+              type: string
+              description: 'The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: ''2014-01-01T00:00:00Z''. Readonly.'
+              format: date-time
+              nullable: true
+            displayName:
+              type: string
+              description: Specifies a display name for the conditionalAccessPolicy object.
+            description:
+              type: string
+              nullable: true
+            state:
+              $ref: '#/components/schemas/microsoft.graph.conditionalAccessPolicyState'
+            conditions:
+              $ref: '#/components/schemas/microsoft.graph.conditionalAccessConditionSet'
+            grantControls:
+              $ref: '#/components/schemas/microsoft.graph.conditionalAccessGrantControls'
+            sessionControls:
+              $ref: '#/components/schemas/microsoft.graph.conditionalAccessSessionControls'
+      example:
+        id: string (identifier)
+        createdDateTime: string (timestamp)
+        modifiedDateTime: string (timestamp)
+        displayName: string
+        description: string
+        state:
+          '@odata.type': microsoft.graph.conditionalAccessPolicyState
+        conditions:
+          '@odata.type': microsoft.graph.conditionalAccessConditionSet
+        grantControls:
+          '@odata.type': microsoft.graph.conditionalAccessGrantControls
+        sessionControls:
+          '@odata.type': microsoft.graph.conditionalAccessSessionControls
     microsoft.graph.homeRealmDiscoveryPolicy:
       allOf:
         - $ref: '#/components/schemas/microsoft.graph.stsPolicy'
@@ -4761,6 +5176,22 @@ components:
         isOrganizationDefault: true
         appliesTo:
           - '@odata.type': microsoft.graph.directoryObject
+    microsoft.graph.identitySecurityDefaultsEnforcementPolicy:
+      allOf:
+        - $ref: '#/components/schemas/microsoft.graph.policyBase'
+        - title: identitySecurityDefaultsEnforcementPolicy
+          type: object
+          properties:
+            isEnabled:
+              type: boolean
+              description: 'If set to true, Azure Active Directory security defaults is enabled for the tenant.'
+          description: Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
+      example:
+        id: string (identifier)
+        deletedDateTime: string (timestamp)
+        description: string
+        displayName: string
+        isEnabled: true
     microsoft.graph.tokenIssuancePolicy:
       allOf:
         - $ref: '#/components/schemas/microsoft.graph.stsPolicy'
@@ -6015,7 +6446,7 @@ components:
               $ref: '#/components/schemas/microsoft.graph.patternedRecurrence'
             responseRequested:
               type: boolean
-              description: Set to true if the sender would like a response when the event is accepted or declined.
+              description: 'Default is true, which represents the organizer would like an invitee to send a response to the event.'
               nullable: true
             seriesMasterId:
               type: string
@@ -6050,6 +6481,7 @@ components:
               $ref: '#/components/schemas/microsoft.graph.onlineMeetingInfo'
             allowNewTimeProposals:
               type: boolean
+              description: 'True if the meeting organizer allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.'
               nullable: true
             attachments:
               type: array
@@ -7369,6 +7801,23 @@ components:
         - title: team
           type: object
           properties:
+            displayName:
+              type: string
+              nullable: true
+            description:
+              type: string
+              nullable: true
+            internalId:
+              type: string
+              description: A unique ID for the team that has been used in a few places such as the audit log/Office 365 Management Activity API.
+              nullable: true
+            classification:
+              type: string
+              nullable: true
+            specialization:
+              $ref: '#/components/schemas/microsoft.graph.teamSpecialization'
+            visibility:
+              $ref: '#/components/schemas/microsoft.graph.teamVisibilityType'
             webUrl:
               type: string
               description: 'A hyperlink that will go to the team in the Microsoft Teams client. This is the URL that you get when you right-click a team in the Microsoft Teams client and select Get link to team. This URL should be treated as an opaque blob, and not parsed.'
@@ -7387,6 +7836,14 @@ components:
               nullable: true
             schedule:
               $ref: '#/components/schemas/microsoft.graph.schedule'
+            group:
+              $ref: '#/components/schemas/microsoft.graph.group'
+            template:
+              $ref: '#/components/schemas/microsoft.graph.teamsTemplate'
+            members:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.conversationMember'
             channels:
               type: array
               items:
@@ -7405,6 +7862,14 @@ components:
                 $ref: '#/components/schemas/microsoft.graph.teamsAsyncOperation'
       example:
         id: string (identifier)
+        displayName: string
+        description: string
+        internalId: string
+        classification: string
+        specialization:
+          '@odata.type': microsoft.graph.teamSpecialization
+        visibility:
+          '@odata.type': microsoft.graph.teamVisibilityType
         webUrl: string
         memberSettings:
           '@odata.type': microsoft.graph.teamMemberSettings
@@ -7417,6 +7882,12 @@ components:
         isArchived: true
         schedule:
           '@odata.type': microsoft.graph.schedule
+        group:
+          '@odata.type': microsoft.graph.group
+        template:
+          '@odata.type': microsoft.graph.teamsTemplate
+        members:
+          - '@odata.type': microsoft.graph.conversationMember
         channels:
           - '@odata.type': microsoft.graph.channel
         primaryChannel:
@@ -7425,6 +7896,38 @@ components:
           - '@odata.type': microsoft.graph.teamsAppInstallation
         operations:
           - '@odata.type': microsoft.graph.teamsAsyncOperation
+    microsoft.graph.certificateAuthority:
+      title: certificateAuthority
+      type: object
+      properties:
+        isRootAuthority:
+          type: boolean
+          description: 'Required. true if the trusted certificate is a root authority, false if the trusted certificate is an intermediate authority.'
+        certificateRevocationListUrl:
+          type: string
+          description: The URL of the certificate revocation list.
+          nullable: true
+        deltaCertificateRevocationListUrl:
+          type: string
+          description: The URL contains the list of all revoked certificates since the last time a full certificate revocaton list was created.
+          nullable: true
+        certificate:
+          type: string
+          description: Required. The base64 encoded string representing the public certificate.
+          format: base64url
+        issuer:
+          type: string
+          description: 'The issuer of the certificate, calculated from the certificate value. Read-only.'
+        issuerSki:
+          type: string
+          description: 'The subject key identifier of the certificate, calculated from the certificate value. Read-only.'
+      example:
+        isRootAuthority: true
+        certificateRevocationListUrl: string
+        deltaCertificateRevocationListUrl: string
+        certificate: string
+        issuer: string
+        issuerSki: string
     microsoft.graph.stsPolicy:
       allOf:
         - $ref: '#/components/schemas/microsoft.graph.policyBase'
@@ -7455,6 +7958,120 @@ components:
         isOrganizationDefault: true
         appliesTo:
           - '@odata.type': microsoft.graph.directoryObject
+    microsoft.graph.conditionalAccessPolicyState:
+      title: conditionalAccessPolicyState
+      enum:
+        - enabled
+        - disabled
+        - enabledForReportingButNotEnforced
+      type: string
+    microsoft.graph.conditionalAccessConditionSet:
+      title: conditionalAccessConditionSet
+      type: object
+      properties:
+        applications:
+          $ref: '#/components/schemas/microsoft.graph.conditionalAccessApplications'
+        users:
+          $ref: '#/components/schemas/microsoft.graph.conditionalAccessUsers'
+        signInRiskLevels:
+          type: array
+          items:
+            $ref: '#/components/schemas/microsoft.graph.riskLevel'
+          description: 'Risk levels included in the policy. Possible values are: low, medium, high, none.'
+        platforms:
+          $ref: '#/components/schemas/microsoft.graph.conditionalAccessPlatforms'
+        locations:
+          $ref: '#/components/schemas/microsoft.graph.conditionalAccessLocations'
+        clientAppTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/microsoft.graph.conditionalAccessClientApp'
+          description: 'Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other.'
+      example:
+        applications:
+          '@odata.type': microsoft.graph.conditionalAccessApplications
+        users:
+          '@odata.type': microsoft.graph.conditionalAccessUsers
+        signInRiskLevels:
+          - '@odata.type': microsoft.graph.riskLevel
+        platforms:
+          '@odata.type': microsoft.graph.conditionalAccessPlatforms
+        locations:
+          '@odata.type': microsoft.graph.conditionalAccessLocations
+        clientAppTypes:
+          - '@odata.type': microsoft.graph.conditionalAccessClientApp
+    microsoft.graph.conditionalAccessGrantControls:
+      title: conditionalAccessGrantControls
+      type: object
+      properties:
+        operator:
+          type: string
+          description: 'Defines the relationship of the grant controls. Possible values: AND, OR.'
+          nullable: true
+        builtInControls:
+          type: array
+          items:
+            $ref: '#/components/schemas/microsoft.graph.conditionalAccessGrantControl'
+          description: 'List of values of built-in controls required by the policy. Possible values: Block, Mfa, CompliantDevice, DomainJoinedDevice, ApprovedApplication, CompliantApplication'
+        customAuthenticationFactors:
+          type: array
+          items:
+            type: string
+          description: 'List of custom controls IDs required by the policy. For more information, see Custom controls.'
+        termsOfUse:
+          type: array
+          items:
+            type: string
+          description: List of terms of use IDs required by the policy.
+      example:
+        operator: string
+        builtInControls:
+          - '@odata.type': microsoft.graph.conditionalAccessGrantControl
+        customAuthenticationFactors:
+          - string
+        termsOfUse:
+          - string
+    microsoft.graph.conditionalAccessSessionControls:
+      title: conditionalAccessSessionControls
+      type: object
+      properties:
+        applicationEnforcedRestrictions:
+          $ref: '#/components/schemas/microsoft.graph.applicationEnforcedRestrictionsSessionControl'
+        cloudAppSecurity:
+          $ref: '#/components/schemas/microsoft.graph.cloudAppSecuritySessionControl'
+        signInFrequency:
+          $ref: '#/components/schemas/microsoft.graph.signInFrequencySessionControl'
+        persistentBrowser:
+          $ref: '#/components/schemas/microsoft.graph.persistentBrowserSessionControl'
+      example:
+        applicationEnforcedRestrictions:
+          '@odata.type': microsoft.graph.applicationEnforcedRestrictionsSessionControl
+        cloudAppSecurity:
+          '@odata.type': microsoft.graph.cloudAppSecuritySessionControl
+        signInFrequency:
+          '@odata.type': microsoft.graph.signInFrequencySessionControl
+        persistentBrowser:
+          '@odata.type': microsoft.graph.persistentBrowserSessionControl
+    microsoft.graph.policyBase:
+      allOf:
+        - $ref: '#/components/schemas/microsoft.graph.directoryObject'
+        - title: policyBase
+          type: object
+          properties:
+            description:
+              type: string
+              description: Description for this policy.
+              nullable: true
+            displayName:
+              type: string
+              description: Display name for this policy.
+              nullable: true
+          description: Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
+      example:
+        id: string (identifier)
+        deletedDateTime: string (timestamp)
+        description: string
+        displayName: string
     odata.error:
       required:
         - error
@@ -10136,6 +10753,26 @@ components:
         threadId: string
         messageId: string
         replyChainMessageId: string
+    microsoft.graph.teamSpecialization:
+      title: teamSpecialization
+      enum:
+        - none
+        - educationStandard
+        - educationClass
+        - educationProfessionalLearningCommunity
+        - educationStaff
+        - healthcareStandard
+        - healthcareCareCoordination
+        - unknownFutureValue
+      type: string
+    microsoft.graph.teamVisibilityType:
+      title: teamVisibilityType
+      enum:
+        - private
+        - public
+        - hiddenMembership
+        - unknownFutureValue
+      type: string
     microsoft.graph.teamMemberSettings:
       title: teamMemberSettings
       type: object
@@ -10352,6 +10989,404 @@ components:
           - '@odata.type': microsoft.graph.offerShiftRequest
         timeOffRequests:
           - '@odata.type': microsoft.graph.timeOffRequest
+    microsoft.graph.group:
+      allOf:
+        - $ref: '#/components/schemas/microsoft.graph.directoryObject'
+        - title: group
+          type: object
+          properties:
+            assignedLabels:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.assignedLabel'
+              description: 'The list of sensitivity label pairs (label ID, label name) associated with an Microsoft 365 group. Returned only on $select. Read-only.'
+            assignedLicenses:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.assignedLicense'
+              description: The licenses that are assigned to the group. Returned only on $select. Read-only.
+            classification:
+              type: string
+              description: 'Describes a classification for the group (such as low, medium or high business impact). Valid values for this property are defined by creating a ClassificationList setting value, based on the template definition.Returned by default.'
+              nullable: true
+            createdDateTime:
+              pattern: '^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$'
+              type: string
+              description: 'Timestamp of when the group was created. The value cannot be modified and is automatically populated when the group is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: ''2014-01-01T00:00:00Z''. Returned by default. Read-only.'
+              format: date-time
+              nullable: true
+            description:
+              type: string
+              description: An optional description for the group. Returned by default.
+              nullable: true
+            displayName:
+              type: string
+              description: The display name for the group. This property is required when a group is created and cannot be cleared during updates. Returned by default. Supports $filter and $orderby.
+              nullable: true
+            expirationDateTime:
+              pattern: '^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$'
+              type: string
+              description: 'Timestamp of when the group is set to expire. The value cannot be modified and is automatically populated when the group is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: ''2014-01-01T00:00:00Z''. Returned by default. Read-only.'
+              format: date-time
+              nullable: true
+            hasMembersWithLicenseErrors:
+              type: boolean
+              description: 'Indicates whether there are members in this group that have license errors from its group-based license assignment. This property is never returned on a GET operation. You can use it as a $filter argument to get groups that have members with license errors (that is, filter for this property being true). See an example.'
+              nullable: true
+            groupTypes:
+              type: array
+              items:
+                type: string
+              description: 'Specifies the group type and its membership.  If the collection contains Unified, the group is a Microsoft 365 group; otherwise, it''s either a security group or distribution group. For details, see groups overview.If the collection includes DynamicMembership, the group has dynamic membership; otherwise, membership is static.  Returned by default. Supports $filter.'
+            licenseProcessingState:
+              $ref: '#/components/schemas/microsoft.graph.licenseProcessingState'
+            mail:
+              type: string
+              description: 'The SMTP address for the group, for example, ''serviceadmins@contoso.onmicrosoft.com''. Returned by default. Read-only. Supports $filter.'
+              nullable: true
+            mailEnabled:
+              type: boolean
+              description: Specifies whether the group is mail-enabled. Returned by default.
+              nullable: true
+            mailNickname:
+              type: string
+              description: 'The mail alias for the group, unique in the organization. This property must be specified when a group is created. Returned by default. Supports $filter.'
+              nullable: true
+            membershipRule:
+              type: string
+              description: 'The rule that determines members for this group if the group is a dynamic group (groupTypes contains DynamicMembership). For more information about the syntax of the membership rule, see Membership Rules syntax. Returned by default.'
+              nullable: true
+            membershipRuleProcessingState:
+              type: string
+              description: Indicates whether the dynamic membership processing is on or paused. Possible values are 'On' or 'Paused'. Returned by default.
+              nullable: true
+            onPremisesDomainName:
+              type: string
+              description: 'Contains the on-premises domain FQDN, also called dnsDomainName synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-only.'
+              nullable: true
+            onPremisesLastSyncDateTime:
+              pattern: '^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$'
+              type: string
+              description: 'Indicates the last time at which the group was synced with the on-premises directory.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: ''2014-01-01T00:00:00Z''. Returned by default. Read-only. Supports $filter.'
+              format: date-time
+              nullable: true
+            onPremisesNetBiosName:
+              type: string
+              description: Contains the on-premises netBios name synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-only.
+              nullable: true
+            onPremisesProvisioningErrors:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.onPremisesProvisioningError'
+              description: Errors when using Microsoft synchronization product during provisioning. Returned by default.
+            onPremisesSamAccountName:
+              type: string
+              description: Contains the on-premises SAM account name synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-only.
+              nullable: true
+            onPremisesSecurityIdentifier:
+              type: string
+              description: Contains the on-premises security identifier (SID) for the group that was synchronized from on-premises to the cloud. Returned by default. Read-only.
+              nullable: true
+            onPremisesSyncEnabled:
+              type: boolean
+              description: true if this group is synced from an on-premises directory; false if this group was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Returned by default. Read-only. Supports $filter.
+              nullable: true
+            preferredDataLocation:
+              type: string
+              description: 'The preferred data location for the group. For more information, see  OneDrive Online Multi-Geo. Returned by default.'
+              nullable: true
+            preferredLanguage:
+              type: string
+              description: The preferred language for an Microsoft 365 group. Should follow ISO 639-1 Code; for example 'en-US'. Returned by default.
+              nullable: true
+            proxyAddresses:
+              type: array
+              items:
+                type: string
+              description: 'Email addresses for the group that direct to the same group mailbox. For example: [''SMTP: bob@contoso.com'', ''smtp: bob@sales.contoso.com'']. The any operator is required to filter expressions on multi-valued properties. Returned by default. Read-only. Not nullable. Supports $filter.'
+            renewedDateTime:
+              pattern: '^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$'
+              type: string
+              description: 'Timestamp of when the group was last renewed. This cannot be modified directly and is only updated via the renew service action. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: ''2014-01-01T00:00:00Z''. Returned by default. Read-only.'
+              format: date-time
+              nullable: true
+            securityEnabled:
+              type: boolean
+              description: Specifies whether the group is a security group. Returned by default. Supports $filter.
+              nullable: true
+            securityIdentifier:
+              type: string
+              description: 'Security identifier of the group, used in Windows scenarios. Returned by default.'
+              nullable: true
+            theme:
+              type: string
+              description: 'Specifies an Microsoft 365 group''s color theme. Possible values are Teal, Purple, Green, Blue, Pink, Orange or Red. Returned by default.'
+              nullable: true
+            visibility:
+              type: string
+              description: 'Specifies the visibility of a Microsoft 365 group. Possible values are: Private, Public, or Hiddenmembership; blank values are treated as public.  See group visibility options to learn more.Visibility can be set only when a group is created; it is not editable.Visibility is supported only for unified groups; it is not supported for security groups. Returned by default.'
+              nullable: true
+            allowExternalSenders:
+              type: boolean
+              description: Indicates if people external to the organization can send messages to the group. Default value is false. Returned only on $select.
+              nullable: true
+            autoSubscribeNewMembers:
+              type: boolean
+              description: Indicates if new members added to the group will be auto-subscribed to receive email notifications. You can set this property in a PATCH request for the group; do not set it in the initial POST request that creates the group. Default value is false. Returned only on $select.
+              nullable: true
+            isSubscribedByMail:
+              type: boolean
+              description: Indicates whether the signed-in user is subscribed to receive email conversations. Default value is true. Returned only on $select.
+              nullable: true
+            unseenCount:
+              maximum: 2147483647
+              minimum: -2147483648
+              type: integer
+              description: Count of conversations that have received new posts since the signed-in user last visited the group. Returned only on $select.
+              format: int32
+              nullable: true
+            hideFromOutlookClients:
+              type: boolean
+              description: 'True if the group is not displayed in Outlook clients, such as Outlook for Windows and Outlook on the web; otherwise, false. Default value is false. Returned only on $select.'
+              nullable: true
+            hideFromAddressLists:
+              type: boolean
+              description: 'True if the group is not displayed in certain parts of the Outlook UI: the Address Book, address lists for selecting message recipients, and the Browse Groups dialog for searching groups; otherwise, false. Default value is false. Returned only on $select.'
+              nullable: true
+            isArchived:
+              type: boolean
+              nullable: true
+            appRoleAssignments:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.appRoleAssignment'
+            members:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.directoryObject'
+              description: 'Users and groups that are members of this group. HTTP Methods: GET (supported for all groups), POST (supported for Microsoft 365 groups, security groups and mail-enabled security groups), DELETE (supported for Microsoft 365 groups and security groups) Nullable.'
+            memberOf:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.directoryObject'
+              description: 'Groups that this group is a member of. HTTP Methods: GET (supported for all groups). Read-only. Nullable.'
+            membersWithLicenseErrors:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.directoryObject'
+              description: A list of group members with license errors from this group-based license assignment. Read-only.
+            transitiveMembers:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.directoryObject'
+            transitiveMemberOf:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.directoryObject'
+            createdOnBehalfOf:
+              $ref: '#/components/schemas/microsoft.graph.directoryObject'
+            owners:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.directoryObject'
+              description: 'The owners of the group. The owners are a set of non-admin users who are allowed to modify this object. Limited to 100 owners. HTTP Methods: GET (supported for all groups), POST (supported for Microsoft 365 groups, security groups and mail-enabled security groups), DELETE (supported for Microsoft 365 groups and security groups). Nullable.'
+            settings:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.groupSetting'
+              description: Read-only. Nullable.
+            conversations:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.conversation'
+              description: The group's conversations.
+            photos:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.profilePhoto'
+              description: The profile photos owned by the group. Read-only. Nullable.
+            acceptedSenders:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.directoryObject'
+              description: The list of users or groups that are allowed to create post's or calendar events in this group. If this list is non-empty then only users or groups listed here are allowed to post.
+            rejectedSenders:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.directoryObject'
+              description: The list of users or groups that are not allowed to create posts or calendar events in this group. Nullable
+            threads:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.conversationThread'
+              description: The group's conversation threads. Nullable.
+            calendar:
+              $ref: '#/components/schemas/microsoft.graph.calendar'
+            calendarView:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.event'
+              description: The calendar view for the calendar. Read-only.
+            events:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.event'
+              description: The group's calendar events.
+            photo:
+              $ref: '#/components/schemas/microsoft.graph.profilePhoto'
+            drive:
+              $ref: '#/components/schemas/microsoft.graph.drive'
+            drives:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.drive'
+              description: The group's drives. Read-only.
+            sites:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.site'
+              description: The list of SharePoint sites in this group. Access the default site with /sites/root.
+            extensions:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.extension'
+              description: The collection of open extensions defined for the group. Read-only. Nullable.
+            groupLifecyclePolicies:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.groupLifecyclePolicy'
+              description: The collection of lifecycle policies for this group. Read-only. Nullable.
+            planner:
+              $ref: '#/components/schemas/microsoft.graph.plannerGroup'
+            onenote:
+              $ref: '#/components/schemas/microsoft.graph.onenote'
+            team:
+              $ref: '#/components/schemas/microsoft.graph.team'
+          description: Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
+      example:
+        id: string (identifier)
+        deletedDateTime: string (timestamp)
+        assignedLabels:
+          - '@odata.type': microsoft.graph.assignedLabel
+        assignedLicenses:
+          - '@odata.type': microsoft.graph.assignedLicense
+        classification: string
+        createdDateTime: string (timestamp)
+        description: string
+        displayName: string
+        expirationDateTime: string (timestamp)
+        hasMembersWithLicenseErrors: true
+        groupTypes:
+          - string
+        licenseProcessingState:
+          '@odata.type': microsoft.graph.licenseProcessingState
+        mail: string
+        mailEnabled: true
+        mailNickname: string
+        membershipRule: string
+        membershipRuleProcessingState: string
+        onPremisesDomainName: string
+        onPremisesLastSyncDateTime: string (timestamp)
+        onPremisesNetBiosName: string
+        onPremisesProvisioningErrors:
+          - '@odata.type': microsoft.graph.onPremisesProvisioningError
+        onPremisesSamAccountName: string
+        onPremisesSecurityIdentifier: string
+        onPremisesSyncEnabled: true
+        preferredDataLocation: string
+        preferredLanguage: string
+        proxyAddresses:
+          - string
+        renewedDateTime: string (timestamp)
+        securityEnabled: true
+        securityIdentifier: string
+        theme: string
+        visibility: string
+        allowExternalSenders: true
+        autoSubscribeNewMembers: true
+        isSubscribedByMail: true
+        unseenCount: integer
+        hideFromOutlookClients: true
+        hideFromAddressLists: true
+        isArchived: true
+        appRoleAssignments:
+          - '@odata.type': microsoft.graph.appRoleAssignment
+        members:
+          - '@odata.type': microsoft.graph.directoryObject
+        memberOf:
+          - '@odata.type': microsoft.graph.directoryObject
+        membersWithLicenseErrors:
+          - '@odata.type': microsoft.graph.directoryObject
+        transitiveMembers:
+          - '@odata.type': microsoft.graph.directoryObject
+        transitiveMemberOf:
+          - '@odata.type': microsoft.graph.directoryObject
+        createdOnBehalfOf:
+          '@odata.type': microsoft.graph.directoryObject
+        owners:
+          - '@odata.type': microsoft.graph.directoryObject
+        settings:
+          - '@odata.type': microsoft.graph.groupSetting
+        conversations:
+          - '@odata.type': microsoft.graph.conversation
+        photos:
+          - '@odata.type': microsoft.graph.profilePhoto
+        acceptedSenders:
+          - '@odata.type': microsoft.graph.directoryObject
+        rejectedSenders:
+          - '@odata.type': microsoft.graph.directoryObject
+        threads:
+          - '@odata.type': microsoft.graph.conversationThread
+        calendar:
+          '@odata.type': microsoft.graph.calendar
+        calendarView:
+          - '@odata.type': microsoft.graph.event
+        events:
+          - '@odata.type': microsoft.graph.event
+        photo:
+          '@odata.type': microsoft.graph.profilePhoto
+        drive:
+          '@odata.type': microsoft.graph.drive
+        drives:
+          - '@odata.type': microsoft.graph.drive
+        sites:
+          - '@odata.type': microsoft.graph.site
+        extensions:
+          - '@odata.type': microsoft.graph.extension
+        groupLifecyclePolicies:
+          - '@odata.type': microsoft.graph.groupLifecyclePolicy
+        planner:
+          '@odata.type': microsoft.graph.plannerGroup
+        onenote:
+          '@odata.type': microsoft.graph.onenote
+        team:
+          '@odata.type': microsoft.graph.team
+    microsoft.graph.teamsTemplate:
+      allOf:
+        - $ref: '#/components/schemas/microsoft.graph.entity'
+        - title: teamsTemplate
+          type: object
+      example:
+        id: string (identifier)
+    microsoft.graph.conversationMember:
+      allOf:
+        - $ref: '#/components/schemas/microsoft.graph.entity'
+        - title: conversationMember
+          type: object
+          properties:
+            roles:
+              type: array
+              items:
+                type: string
+                nullable: true
+            displayName:
+              type: string
+              nullable: true
+      example:
+        id: string (identifier)
+        roles:
+          - string
+        displayName: string
     microsoft.graph.channel:
       allOf:
         - $ref: '#/components/schemas/microsoft.graph.entity'
@@ -10457,26 +11492,190 @@ components:
         targetResourceLocation: string
         error:
           '@odata.type': microsoft.graph.operationError
-    microsoft.graph.policyBase:
+    microsoft.graph.conditionalAccessApplications:
+      title: conditionalAccessApplications
+      type: object
+      properties:
+        includeApplications:
+          type: array
+          items:
+            type: string
+          description: 'The list of application IDs the policy applies to, unless explicitly excluded (in excludeApplications). Can also be set to All.'
+        excludeApplications:
+          type: array
+          items:
+            type: string
+          description: The list of application IDs explicitly excluded from the policy.
+        includeUserActions:
+          type: array
+          items:
+            type: string
+          description: 'User actions to include. For example, urn:user:registersecurityinfo'
+      example:
+        includeApplications:
+          - string
+        excludeApplications:
+          - string
+        includeUserActions:
+          - string
+    microsoft.graph.conditionalAccessUsers:
+      title: conditionalAccessUsers
+      type: object
+      properties:
+        includeUsers:
+          type: array
+          items:
+            type: string
+          description: 'User IDs in scope of policy unless explicitly excluded, or None or All or GuestsOrExternalUsers.'
+        excludeUsers:
+          type: array
+          items:
+            type: string
+          description: User IDs excluded from scope of policy and/or GuestsOrExternalUsers.
+        includeGroups:
+          type: array
+          items:
+            type: string
+          description: 'Group IDs in scope of policy unless explicitly excluded, or All.'
+        excludeGroups:
+          type: array
+          items:
+            type: string
+          description: Group IDs excluded from scope of policy.
+        includeRoles:
+          type: array
+          items:
+            type: string
+          description: 'Role IDs in scope of policy unless explicitly excluded, or All.'
+        excludeRoles:
+          type: array
+          items:
+            type: string
+          description: Role IDs excluded from scope of policy.
+      example:
+        includeUsers:
+          - string
+        excludeUsers:
+          - string
+        includeGroups:
+          - string
+        excludeGroups:
+          - string
+        includeRoles:
+          - string
+        excludeRoles:
+          - string
+    microsoft.graph.conditionalAccessPlatforms:
+      title: conditionalAccessPlatforms
+      type: object
+      properties:
+        includePlatforms:
+          type: array
+          items:
+            $ref: '#/components/schemas/microsoft.graph.conditionalAccessDevicePlatform'
+          description: 'Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue.'
+        excludePlatforms:
+          type: array
+          items:
+            $ref: '#/components/schemas/microsoft.graph.conditionalAccessDevicePlatform'
+          description: 'Possible values are: android, iOS, windows, windowsPhone, macOS, unknownFutureValue.'
+      example:
+        includePlatforms:
+          - '@odata.type': microsoft.graph.conditionalAccessDevicePlatform
+        excludePlatforms:
+          - '@odata.type': microsoft.graph.conditionalAccessDevicePlatform
+    microsoft.graph.conditionalAccessLocations:
+      title: conditionalAccessLocations
+      type: object
+      properties:
+        includeLocations:
+          type: array
+          items:
+            type: string
+          description: 'Location IDs in scope of policy unless explicitly excluded, All, or AllTrusted.'
+        excludeLocations:
+          type: array
+          items:
+            type: string
+          description: Location IDs excluded from scope of policy.
+      example:
+        includeLocations:
+          - string
+        excludeLocations:
+          - string
+    microsoft.graph.conditionalAccessClientApp:
+      title: conditionalAccessClientApp
+      enum:
+        - all
+        - browser
+        - mobileAppsAndDesktopClients
+        - exchangeActiveSync
+        - easSupported
+        - other
+        - unknownFutureValue
+      type: string
+    microsoft.graph.conditionalAccessGrantControl:
+      title: conditionalAccessGrantControl
+      enum:
+        - block
+        - mfa
+        - compliantDevice
+        - domainJoinedDevice
+        - approvedApplication
+        - compliantApplication
+        - unknownFutureValue
+      type: string
+    microsoft.graph.applicationEnforcedRestrictionsSessionControl:
       allOf:
-        - $ref: '#/components/schemas/microsoft.graph.directoryObject'
-        - title: policyBase
+        - $ref: '#/components/schemas/microsoft.graph.conditionalAccessSessionControl'
+        - title: applicationEnforcedRestrictionsSessionControl
+          type: object
+      example:
+        isEnabled: true
+    microsoft.graph.cloudAppSecuritySessionControl:
+      allOf:
+        - $ref: '#/components/schemas/microsoft.graph.conditionalAccessSessionControl'
+        - title: cloudAppSecuritySessionControl
           type: object
           properties:
-            description:
-              type: string
-              description: Description for this policy.
-              nullable: true
-            displayName:
-              type: string
-              description: Display name for this policy.
-              nullable: true
-          description: Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
+            cloudAppSecurityType:
+              $ref: '#/components/schemas/microsoft.graph.cloudAppSecuritySessionControlType'
       example:
-        id: string (identifier)
-        deletedDateTime: string (timestamp)
-        description: string
-        displayName: string
+        isEnabled: true
+        cloudAppSecurityType:
+          '@odata.type': microsoft.graph.cloudAppSecuritySessionControlType
+    microsoft.graph.signInFrequencySessionControl:
+      allOf:
+        - $ref: '#/components/schemas/microsoft.graph.conditionalAccessSessionControl'
+        - title: signInFrequencySessionControl
+          type: object
+          properties:
+            value:
+              maximum: 2147483647
+              minimum: -2147483648
+              type: integer
+              description: The number of days or hours.
+              format: int32
+              nullable: true
+            type:
+              $ref: '#/components/schemas/microsoft.graph.signinFrequencyType'
+      example:
+        isEnabled: true
+        value: integer
+        type:
+          '@odata.type': microsoft.graph.signinFrequencyType
+    microsoft.graph.persistentBrowserSessionControl:
+      allOf:
+        - $ref: '#/components/schemas/microsoft.graph.conditionalAccessSessionControl'
+        - title: persistentBrowserSessionControl
+          type: object
+          properties:
+            mode:
+              $ref: '#/components/schemas/microsoft.graph.persistentBrowserSessionMode'
+      example:
+        isEnabled: true
+        mode:
+          '@odata.type': microsoft.graph.persistentBrowserSessionMode
     odata.error.main:
       required:
         - code
@@ -11618,6 +12817,11 @@ components:
                 $ref: '#/components/schemas/microsoft.graph.workbookComment'
             functions:
               $ref: '#/components/schemas/microsoft.graph.workbookFunctions'
+            operations:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.workbookOperation'
+              description: 'The status of workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only.'
       example:
         id: string (identifier)
         application:
@@ -11632,6 +12836,8 @@ components:
           - '@odata.type': microsoft.graph.workbookComment
         functions:
           '@odata.type': microsoft.graph.workbookFunctions
+        operations:
+          - '@odata.type': microsoft.graph.workbookOperation
     microsoft.graph.listItem:
       allOf:
         - $ref: '#/components/schemas/microsoft.graph.baseItem'
@@ -13122,6 +14328,194 @@ components:
         startDateTime: string (timestamp)
         endDateTime: string (timestamp)
         timeOffReasonId: string
+    microsoft.graph.assignedLabel:
+      title: assignedLabel
+      type: object
+      properties:
+        labelId:
+          type: string
+          description: The unique identifier of the label.
+          nullable: true
+        displayName:
+          type: string
+          description: The display name of the label. Read-only.
+          nullable: true
+      example:
+        labelId: string
+        displayName: string
+    microsoft.graph.licenseProcessingState:
+      title: licenseProcessingState
+      type: object
+      properties:
+        state:
+          type: string
+          nullable: true
+      example:
+        state: string
+    microsoft.graph.groupSetting:
+      allOf:
+        - $ref: '#/components/schemas/microsoft.graph.entity'
+        - title: groupSetting
+          type: object
+          properties:
+            displayName:
+              type: string
+              description: 'Display name of this group of settings, which comes from the associated template.'
+              nullable: true
+            templateId:
+              type: string
+              description: Unique identifier for the template used to create this group of settings. Read-only.
+              nullable: true
+            values:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.settingValue'
+              description: Collection of name value pairs. Must contain and set all the settings defined in the template.
+      example:
+        id: string (identifier)
+        displayName: string
+        templateId: string
+        values:
+          - '@odata.type': microsoft.graph.settingValue
+    microsoft.graph.conversation:
+      allOf:
+        - $ref: '#/components/schemas/microsoft.graph.entity'
+        - title: conversation
+          type: object
+          properties:
+            topic:
+              type: string
+              description: 'The topic of the conversation. This property can be set when the conversation is created, but it cannot be updated.'
+            hasAttachments:
+              type: boolean
+              description: Indicates whether any of the posts within this Conversation has at least one attachment.
+            lastDeliveredDateTime:
+              pattern: '^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$'
+              type: string
+              description: 'The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: ''2014-01-01T00:00:00Z'''
+              format: date-time
+            uniqueSenders:
+              type: array
+              items:
+                type: string
+              description: All the users that sent a message to this Conversation.
+            preview:
+              type: string
+              description: A short summary from the body of the latest post in this converstaion.
+            threads:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.conversationThread'
+              description: A collection of all the conversation threads in the conversation. A navigation property. Read-only. Nullable.
+      example:
+        id: string (identifier)
+        topic: string
+        hasAttachments: true
+        lastDeliveredDateTime: string (timestamp)
+        uniqueSenders:
+          - string
+        preview: string
+        threads:
+          - '@odata.type': microsoft.graph.conversationThread
+    microsoft.graph.conversationThread:
+      allOf:
+        - $ref: '#/components/schemas/microsoft.graph.entity'
+        - title: conversationThread
+          type: object
+          properties:
+            toRecipients:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.recipient'
+              description: 'The To: recipients for the thread.'
+            topic:
+              type: string
+              description: 'The topic of the conversation. This property can be set when the conversation is created, but it cannot be updated.'
+            hasAttachments:
+              type: boolean
+              description: Indicates whether any of the posts within this thread has at least one attachment.
+            lastDeliveredDateTime:
+              pattern: '^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$'
+              type: string
+              description: 'The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: ''2014-01-01T00:00:00Z'''
+              format: date-time
+            uniqueSenders:
+              type: array
+              items:
+                type: string
+              description: All the users that sent a message to this thread.
+            ccRecipients:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.recipient'
+              description: 'The Cc: recipients for the thread.'
+            preview:
+              type: string
+              description: A short summary from the body of the latest post in this conversation.
+            isLocked:
+              type: boolean
+              description: Indicates if the thread is locked.
+            posts:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.post'
+              description: Read-only. Nullable.
+      example:
+        id: string (identifier)
+        toRecipients:
+          - '@odata.type': microsoft.graph.recipient
+        topic: string
+        hasAttachments: true
+        lastDeliveredDateTime: string (timestamp)
+        uniqueSenders:
+          - string
+        ccRecipients:
+          - '@odata.type': microsoft.graph.recipient
+        preview: string
+        isLocked: true
+        posts:
+          - '@odata.type': microsoft.graph.post
+    microsoft.graph.groupLifecyclePolicy:
+      allOf:
+        - $ref: '#/components/schemas/microsoft.graph.entity'
+        - title: groupLifecyclePolicy
+          type: object
+          properties:
+            groupLifetimeInDays:
+              maximum: 2147483647
+              minimum: -2147483648
+              type: integer
+              description: 'Number of days before a group expires and needs to be renewed. Once renewed, the group expiration is extended by the number of days defined.'
+              format: int32
+              nullable: true
+            managedGroupTypes:
+              type: string
+              description: 'The group type for which the expiration policy applies. Possible values are All, Selected or None.'
+              nullable: true
+            alternateNotificationEmails:
+              type: string
+              description: List of email address to send notifications for groups without owners. Multiple email address can be defined by separating email address with a semicolon.
+              nullable: true
+      example:
+        id: string (identifier)
+        groupLifetimeInDays: integer
+        managedGroupTypes: string
+        alternateNotificationEmails: string
+    microsoft.graph.plannerGroup:
+      allOf:
+        - $ref: '#/components/schemas/microsoft.graph.entity'
+        - title: plannerGroup
+          type: object
+          properties:
+            plans:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.plannerPlan'
+              description: Read-only. Nullable. Returns the plannerPlans owned by the group.
+      example:
+        id: string (identifier)
+        plans:
+          - '@odata.type': microsoft.graph.plannerPlan
     microsoft.graph.chatMessage:
       allOf:
         - $ref: '#/components/schemas/microsoft.graph.entity'
@@ -13344,6 +14738,47 @@ components:
       example:
         code: string
         message: string
+    microsoft.graph.conditionalAccessDevicePlatform:
+      title: conditionalAccessDevicePlatform
+      enum:
+        - android
+        - iOS
+        - windows
+        - windowsPhone
+        - macOS
+        - all
+        - unknownFutureValue
+      type: string
+    microsoft.graph.conditionalAccessSessionControl:
+      title: conditionalAccessSessionControl
+      type: object
+      properties:
+        isEnabled:
+          type: boolean
+          description: Specifies whether the session control is enabled.
+          nullable: true
+      example:
+        isEnabled: true
+    microsoft.graph.cloudAppSecuritySessionControlType:
+      title: cloudAppSecuritySessionControlType
+      enum:
+        - mcasConfigured
+        - monitorOnly
+        - blockDownloads
+        - unknownFutureValue
+      type: string
+    microsoft.graph.signinFrequencyType:
+      title: signinFrequencyType
+      enum:
+        - days
+        - hours
+      type: string
+    microsoft.graph.persistentBrowserSessionMode:
+      title: persistentBrowserSessionMode
+      enum:
+        - always
+        - never
+      type: string
     odata.error.detail:
       required:
         - code
@@ -13693,6 +15128,27 @@ components:
           type: object
       example:
         id: string (identifier)
+    microsoft.graph.workbookOperation:
+      allOf:
+        - $ref: '#/components/schemas/microsoft.graph.entity'
+        - title: workbookOperation
+          type: object
+          properties:
+            status:
+              $ref: '#/components/schemas/microsoft.graph.workbookOperationStatus'
+            resourceLocation:
+              type: string
+              description: The resource URI for the result.
+              nullable: true
+            error:
+              $ref: '#/components/schemas/microsoft.graph.workbookOperationError'
+      example:
+        id: string (identifier)
+        status:
+          '@odata.type': microsoft.graph.workbookOperationStatus
+        resourceLocation: string
+        error:
+          '@odata.type': microsoft.graph.workbookOperationError
     microsoft.graph.contentTypeInfo:
       title: contentTypeInfo
       type: object
@@ -14165,6 +15621,105 @@ components:
         managerActionDateTime: string (timestamp)
         senderUserId: string
         managerUserId: string
+    microsoft.graph.settingValue:
+      title: settingValue
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the setting (as defined by the groupSettingTemplate).
+          nullable: true
+        value:
+          type: string
+          description: Value of the setting.
+          nullable: true
+      example:
+        name: string
+        value: string
+    microsoft.graph.post:
+      allOf:
+        - $ref: '#/components/schemas/microsoft.graph.outlookItem'
+        - title: post
+          type: object
+          properties:
+            body:
+              $ref: '#/components/schemas/microsoft.graph.itemBody'
+            receivedDateTime:
+              pattern: '^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$'
+              type: string
+              description: 'Specifies when the post was received. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: ''2014-01-01T00:00:00Z'''
+              format: date-time
+            hasAttachments:
+              type: boolean
+              description: Indicates whether the post has at least one attachment. This is a default property.
+            from:
+              $ref: '#/components/schemas/microsoft.graph.recipient'
+            sender:
+              $ref: '#/components/schemas/microsoft.graph.recipient'
+            conversationThreadId:
+              type: string
+              description: Unique ID of the conversation thread. Read-only.
+              nullable: true
+            newParticipants:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.recipient'
+              description: Conversation participants that were added to the thread as part of this post.
+            conversationId:
+              type: string
+              description: Unique ID of the conversation. Read-only.
+              nullable: true
+            inReplyTo:
+              $ref: '#/components/schemas/microsoft.graph.post'
+            singleValueExtendedProperties:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.singleValueLegacyExtendedProperty'
+              description: The collection of single-value extended properties defined for the post. Read-only. Nullable.
+            multiValueExtendedProperties:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.multiValueLegacyExtendedProperty'
+              description: The collection of multi-value extended properties defined for the post. Read-only. Nullable.
+            extensions:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.extension'
+              description: The collection of open extensions defined for the post. Read-only. Nullable.
+            attachments:
+              type: array
+              items:
+                $ref: '#/components/schemas/microsoft.graph.attachment'
+              description: Read-only. Nullable.
+      example:
+        id: string (identifier)
+        createdDateTime: string (timestamp)
+        lastModifiedDateTime: string (timestamp)
+        changeKey: string
+        categories:
+          - string
+        body:
+          '@odata.type': microsoft.graph.itemBody
+        receivedDateTime: string (timestamp)
+        hasAttachments: true
+        from:
+          '@odata.type': microsoft.graph.recipient
+        sender:
+          '@odata.type': microsoft.graph.recipient
+        conversationThreadId: string
+        newParticipants:
+          - '@odata.type': microsoft.graph.recipient
+        conversationId: string
+        inReplyTo:
+          '@odata.type': microsoft.graph.post
+        singleValueExtendedProperties:
+          - '@odata.type': microsoft.graph.singleValueLegacyExtendedProperty
+        multiValueExtendedProperties:
+          - '@odata.type': microsoft.graph.multiValueLegacyExtendedProperty
+        extensions:
+          - '@odata.type': microsoft.graph.extension
+        attachments:
+          - '@odata.type': microsoft.graph.attachment
     microsoft.graph.chatMessageType:
       title: chatMessageType
       enum:
@@ -14504,6 +16059,33 @@ components:
         id: string (identifier)
         content: string
         contentType: string
+    microsoft.graph.workbookOperationStatus:
+      title: workbookOperationStatus
+      enum:
+        - notStarted
+        - running
+        - succeeded
+        - failed
+      type: string
+    microsoft.graph.workbookOperationError:
+      title: workbookOperationError
+      type: object
+      properties:
+        code:
+          type: string
+          description: The error code.
+          nullable: true
+        message:
+          type: string
+          description: The error message.
+          nullable: true
+        innerError:
+          $ref: '#/components/schemas/microsoft.graph.workbookOperationError'
+      example:
+        code: string
+        message: string
+        innerError:
+          '@odata.type': microsoft.graph.workbookOperationError
     microsoft.graph.accessAction:
       title: accessAction
       type: object

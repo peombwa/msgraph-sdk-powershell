@@ -1,6 +1,6 @@
 ---
 Module Name: Microsoft.Graph.Users.Actions
-Module Guid: 2919955f-57a7-4f71-97e0-d4f96aad0aae
+Module Guid: b17f9606-3e24-4a10-9400-ba1c9cd6e453
 Download Help Link: https://docs.microsoft.com/en-us/powershell/module/microsoft.graph.users.actions
 Help Version: 1.0.0.0
 Locale: en-US
@@ -15,7 +15,7 @@ Microsoft Graph PowerShell Cmdlets
 Invoke action wipeAndBlockManagedApps
 
 ### [Clear-MgUserManagedAppRegistration](Clear-MgUserManagedAppRegistration.md)
-Invoke action wipeManagedAppRegistrationsByDeviceTag
+Invoke action wipeManagedAppRegistrationByDeviceTag
 
 ### [Clear-MgUserManagedDevice](Clear-MgUserManagedDevice.md)
 Invoke action wipe

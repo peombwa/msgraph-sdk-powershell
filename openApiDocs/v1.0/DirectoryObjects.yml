@@ -376,6 +376,54 @@ paths:
         default:
           $ref: '#/components/responses/error'
       x-ms-docs-operation-type: action
+  /directoryObjects/microsoft.graph.administrativeUnit/microsoft.graph.delta():
+    get:
+      tags:
+        - directoryObjects.Functions
+      summary: Invoke function delta
+      operationId: directoryObjects.microsoft.graph.administrativeUnit_delta
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/microsoft.graph.administrativeUnit'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: function
+  /directoryObjects/microsoft.graph.getAvailableExtensionProperties:
+    post:
+      tags:
+        - directoryObjects.Actions
+      summary: Invoke action getAvailableExtensionProperties
+      operationId: directoryObjects_getAvailableExtensionProperties
+      requestBody:
+        description: Action parameters
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                isSyncedFromOnPremises:
+                  type: boolean
+                  default: false
+                  nullable: true
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/microsoft.graph.extensionProperty'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: action
   /directoryObjects/microsoft.graph.getByIds:
     post:
       tags:
@@ -462,6 +510,50 @@ components:
       example:
         id: string (identifier)
         deletedDateTime: string (timestamp)
+    microsoft.graph.administrativeUnit:
+      allOf:
+        - $ref: '#/components/schemas/microsoft.graph.directoryObject'
+        - title: administrativeUnit
+          type: object
+          description: Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
+      example:
+        id: string (identifier)
+        deletedDateTime: string (timestamp)
+    microsoft.graph.extensionProperty:
+      allOf:
+        - $ref: '#/components/schemas/microsoft.graph.directoryObject'
+        - title: extensionProperty
+          type: object
+          properties:
+            appDisplayName:
+              type: string
+              description: Display name of the application object on which this extension property is defined. Read-only.
+              nullable: true
+            name:
+              type: string
+              description: Name of the extension property. Not nullable.
+            dataType:
+              type: string
+              description: Specifies the data type of the value the extension property can hold. Following values are supported. Not nullable. Binary - 256 bytes maximumBooleanDateTime - Must be specified in ISO 8601 format. Will be stored in UTC.Integer - 32-bit value.LargeInteger - 64-bit value.String - 256 characters maximum
+            isSyncedFromOnPremises:
+              type: boolean
+              description: Indicates if this extension property was sycned from onpremises directory using Azure AD Connect. Read-only.
+              nullable: true
+            targetObjects:
+              type: array
+              items:
+                type: string
+              description: Following values are supported. Not nullable. UserGroupOrganizationDeviceApplication
+          description: Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
+      example:
+        id: string (identifier)
+        deletedDateTime: string (timestamp)
+        appDisplayName: string
+        name: string
+        dataType: string
+        isSyncedFromOnPremises: true
+        targetObjects:
+          - string
     microsoft.graph.entity:
       title: entity
       type: object

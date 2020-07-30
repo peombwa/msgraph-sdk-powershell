@@ -12,28 +12,28 @@ Update the navigation property bucketTaskBoardFormat in planner
 
 ## SYNTAX
 
-### UpdateExpanded (Default)
+### UpdateExpanded1 (Default)
 ```
 Update-MgPlannerPlanBucketTaskBoardFormat -PlannerBucketId <String> -PlannerPlanId <String>
  -PlannerTaskId <String> [-Id <String>] [-OrderHint <String>] [-PassThru] [-Confirm] [-WhatIf]
  [<CommonParameters>]
 ```
 
-### Update
+### Update1
 ```
 Update-MgPlannerPlanBucketTaskBoardFormat -PlannerBucketId <String> -PlannerPlanId <String>
  -PlannerTaskId <String> -BodyParameter <IMicrosoftGraphPlannerBucketTaskBoardTaskFormat1> [-PassThru]
  [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
-### UpdateViaIdentity
+### UpdateViaIdentity1
 ```
 Update-MgPlannerPlanBucketTaskBoardFormat -InputObject <IPlannerIdentity>
  -BodyParameter <IMicrosoftGraphPlannerBucketTaskBoardTaskFormat1> [-PassThru] [-Confirm] [-WhatIf]
  [<CommonParameters>]
 ```
 
-### UpdateViaIdentityExpanded
+### UpdateViaIdentityExpanded1
 ```
 Update-MgPlannerPlanBucketTaskBoardFormat -InputObject <IPlannerIdentity> [-Id <String>] [-OrderHint <String>]
  [-PassThru] [-Confirm] [-WhatIf] [<CommonParameters>]
@@ -70,7 +70,7 @@ To construct, see NOTES section for BODYPARAMETER properties and create a hash t
 
 ```yaml
 Type: Microsoft.Graph.PowerShell.Models.IMicrosoftGraphPlannerBucketTaskBoardTaskFormat1
-Parameter Sets: Update, UpdateViaIdentity
+Parameter Sets: Update1, UpdateViaIdentity1
 Aliases:
 
 Required: True
@@ -85,7 +85,7 @@ Read-only.
 
 ```yaml
 Type: System.String
-Parameter Sets: UpdateExpanded, UpdateViaIdentityExpanded
+Parameter Sets: UpdateExpanded1, UpdateViaIdentityExpanded1
 Aliases:
 
 Required: False
@@ -101,7 +101,7 @@ To construct, see NOTES section for INPUTOBJECT properties and create a hash tab
 
 ```yaml
 Type: Microsoft.Graph.PowerShell.Models.IPlannerIdentity
-Parameter Sets: UpdateViaIdentity, UpdateViaIdentityExpanded
+Parameter Sets: UpdateViaIdentity1, UpdateViaIdentityExpanded1
 Aliases:
 
 Required: True
@@ -117,7 +117,7 @@ The format is defined as outlined here.
 
 ```yaml
 Type: System.String
-Parameter Sets: UpdateExpanded, UpdateViaIdentityExpanded
+Parameter Sets: UpdateExpanded1, UpdateViaIdentityExpanded1
 Aliases:
 
 Required: False
@@ -147,7 +147,7 @@ key: plannerBucket-id of plannerBucket
 
 ```yaml
 Type: System.String
-Parameter Sets: Update, UpdateExpanded
+Parameter Sets: Update1, UpdateExpanded1
 Aliases:
 
 Required: True
@@ -162,7 +162,7 @@ key: plannerPlan-id of plannerPlan
 
 ```yaml
 Type: System.String
-Parameter Sets: Update, UpdateExpanded
+Parameter Sets: Update1, UpdateExpanded1
 Aliases:
 
 Required: True
@@ -177,7 +177,7 @@ key: plannerTask-id of plannerTask
 
 ```yaml
 Type: System.String
-Parameter Sets: Update, UpdateExpanded
+Parameter Sets: Update1, UpdateExpanded1
 Aliases:
 
 Required: True
@@ -245,9 +245,12 @@ BODYPARAMETER <IMicrosoftGraphPlannerBucketTaskBoardTaskFormat1>: plannerBucketT
   - `[OrderHint <String>]`: Hint used to order tasks in the Bucket view of the Task Board. The format is defined as outlined here.
 
 INPUTOBJECT <IPlannerIdentity>: Identity Parameter
+  - `[GroupId <String>]`: key: group-id of group
   - `[PlannerBucketId <String>]`: key: plannerBucket-id of plannerBucket
+  - `[PlannerDeltaId <String>]`: key: plannerDelta-id of plannerDelta
   - `[PlannerPlanId <String>]`: key: plannerPlan-id of plannerPlan
   - `[PlannerTaskId <String>]`: key: plannerTask-id of plannerTask
+  - `[UserId <String>]`: key: user-id of user
 
 ## RELATED LINKS
 

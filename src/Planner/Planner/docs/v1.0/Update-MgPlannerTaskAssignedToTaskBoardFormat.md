@@ -232,9 +232,12 @@ BODYPARAMETER <IMicrosoftGraphPlannerAssignedToTaskBoardTaskFormat>: plannerAssi
   - `[UnassignedOrderHint <String>]`: Hint value used to order the task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned to. The format is defined as outlined here.
 
 INPUTOBJECT <IPlannerIdentity>: Identity Parameter
+  - `[GroupId <String>]`: key: group-id of group
   - `[PlannerBucketId <String>]`: key: plannerBucket-id of plannerBucket
+  - `[PlannerDeltaId <String>]`: key: plannerDelta-id of plannerDelta
   - `[PlannerPlanId <String>]`: key: plannerPlan-id of plannerPlan
   - `[PlannerTaskId <String>]`: key: plannerTask-id of plannerTask
+  - `[UserId <String>]`: key: user-id of user
 
 ## RELATED LINKS
 

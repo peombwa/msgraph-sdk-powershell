@@ -12,28 +12,28 @@ Update the navigation property assignedToTaskBoardFormat in planner
 
 ## SYNTAX
 
-### UpdateExpanded (Default)
+### UpdateExpanded1 (Default)
 ```
 Update-MgPlannerPlanBucketTaskAssignedToTaskBoardFormat -PlannerBucketId <String> -PlannerPlanId <String>
  -PlannerTaskId <String> [-Id <String>] [-OrderHintsByAssignee <IMicrosoftGraphPlannerOrderHintsByAssignee>]
  [-UnassignedOrderHint <String>] [-PassThru] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
-### Update
+### Update1
 ```
 Update-MgPlannerPlanBucketTaskAssignedToTaskBoardFormat -PlannerBucketId <String> -PlannerPlanId <String>
  -PlannerTaskId <String> -BodyParameter <IMicrosoftGraphPlannerAssignedToTaskBoardTaskFormat1> [-PassThru]
  [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
-### UpdateViaIdentity
+### UpdateViaIdentity1
 ```
 Update-MgPlannerPlanBucketTaskAssignedToTaskBoardFormat -InputObject <IPlannerIdentity>
  -BodyParameter <IMicrosoftGraphPlannerAssignedToTaskBoardTaskFormat1> [-PassThru] [-Confirm] [-WhatIf]
  [<CommonParameters>]
 ```
 
-### UpdateViaIdentityExpanded
+### UpdateViaIdentityExpanded1
 ```
 Update-MgPlannerPlanBucketTaskAssignedToTaskBoardFormat -InputObject <IPlannerIdentity> [-Id <String>]
  [-OrderHintsByAssignee <IMicrosoftGraphPlannerOrderHintsByAssignee>] [-UnassignedOrderHint <String>]
@@ -71,7 +71,7 @@ To construct, see NOTES section for BODYPARAMETER properties and create a hash t
 
 ```yaml
 Type: Microsoft.Graph.PowerShell.Models.IMicrosoftGraphPlannerAssignedToTaskBoardTaskFormat1
-Parameter Sets: Update, UpdateViaIdentity
+Parameter Sets: Update1, UpdateViaIdentity1
 Aliases:
 
 Required: True
@@ -86,7 +86,7 @@ Read-only.
 
 ```yaml
 Type: System.String
-Parameter Sets: UpdateExpanded, UpdateViaIdentityExpanded
+Parameter Sets: UpdateExpanded1, UpdateViaIdentityExpanded1
 Aliases:
 
 Required: False
@@ -102,7 +102,7 @@ To construct, see NOTES section for INPUTOBJECT properties and create a hash tab
 
 ```yaml
 Type: Microsoft.Graph.PowerShell.Models.IPlannerIdentity
-Parameter Sets: UpdateViaIdentity, UpdateViaIdentityExpanded
+Parameter Sets: UpdateViaIdentity1, UpdateViaIdentityExpanded1
 Aliases:
 
 Required: True
@@ -117,7 +117,7 @@ plannerOrderHintsByAssignee
 
 ```yaml
 Type: Microsoft.Graph.PowerShell.Models.IMicrosoftGraphPlannerOrderHintsByAssignee
-Parameter Sets: UpdateExpanded, UpdateViaIdentityExpanded
+Parameter Sets: UpdateExpanded1, UpdateViaIdentityExpanded1
 Aliases:
 
 Required: False
@@ -147,7 +147,7 @@ key: plannerBucket-id of plannerBucket
 
 ```yaml
 Type: System.String
-Parameter Sets: Update, UpdateExpanded
+Parameter Sets: Update1, UpdateExpanded1
 Aliases:
 
 Required: True
@@ -162,7 +162,7 @@ key: plannerPlan-id of plannerPlan
 
 ```yaml
 Type: System.String
-Parameter Sets: Update, UpdateExpanded
+Parameter Sets: Update1, UpdateExpanded1
 Aliases:
 
 Required: True
@@ -177,7 +177,7 @@ key: plannerTask-id of plannerTask
 
 ```yaml
 Type: System.String
-Parameter Sets: Update, UpdateExpanded
+Parameter Sets: Update1, UpdateExpanded1
 Aliases:
 
 Required: True
@@ -193,7 +193,7 @@ The format is defined as outlined here.
 
 ```yaml
 Type: System.String
-Parameter Sets: UpdateExpanded, UpdateViaIdentityExpanded
+Parameter Sets: UpdateExpanded1, UpdateViaIdentityExpanded1
 Aliases:
 
 Required: False
@@ -262,9 +262,12 @@ BODYPARAMETER <IMicrosoftGraphPlannerAssignedToTaskBoardTaskFormat1>: plannerAss
   - `[UnassignedOrderHint <String>]`: Hint value used to order the task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned to. The format is defined as outlined here.
 
 INPUTOBJECT <IPlannerIdentity>: Identity Parameter
+  - `[GroupId <String>]`: key: group-id of group
   - `[PlannerBucketId <String>]`: key: plannerBucket-id of plannerBucket
+  - `[PlannerDeltaId <String>]`: key: plannerDelta-id of plannerDelta
   - `[PlannerPlanId <String>]`: key: plannerPlan-id of plannerPlan
   - `[PlannerTaskId <String>]`: key: plannerTask-id of plannerTask
+  - `[UserId <String>]`: key: user-id of user
 
 ## RELATED LINKS
 

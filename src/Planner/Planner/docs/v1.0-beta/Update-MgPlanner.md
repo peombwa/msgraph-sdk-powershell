@@ -12,16 +12,17 @@ Update planner
 
 ## SYNTAX
 
-### UpdateExpanded (Default)
+### UpdateExpanded1 (Default)
 ```
 Update-MgPlanner [-Buckets <IMicrosoftGraphPlannerBucket1[]>] [-Id <String>]
  [-Plans <IMicrosoftGraphPlannerPlan1[]>] [-Tasks <IMicrosoftGraphPlannerTask1[]>] [-PassThru] [-Confirm]
  [-WhatIf] [<CommonParameters>]
 ```
 
-### Update
+### Update1
 ```
-Update-MgPlanner -BodyParameter <IMicrosoftGraphPlanner> [-PassThru] [-Confirm] [-WhatIf] [<CommonParameters>]
+Update-MgPlanner -BodyParameter <IMicrosoftGraphPlanner1> [-PassThru] [-Confirm] [-WhatIf]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -54,8 +55,8 @@ planner
 To construct, see NOTES section for BODYPARAMETER properties and create a hash table.
 
 ```yaml
-Type: Microsoft.Graph.PowerShell.Models.IMicrosoftGraphPlanner
-Parameter Sets: Update
+Type: Microsoft.Graph.PowerShell.Models.IMicrosoftGraphPlanner1
+Parameter Sets: Update1
 Aliases:
 
 Required: True
@@ -73,7 +74,7 @@ To construct, see NOTES section for BUCKETS properties and create a hash table.
 
 ```yaml
 Type: Microsoft.Graph.PowerShell.Models.IMicrosoftGraphPlannerBucket1[]
-Parameter Sets: UpdateExpanded
+Parameter Sets: UpdateExpanded1
 Aliases:
 
 Required: False
@@ -88,7 +89,7 @@ Read-only.
 
 ```yaml
 Type: System.String
-Parameter Sets: UpdateExpanded
+Parameter Sets: UpdateExpanded1
 Aliases:
 
 Required: False
@@ -121,7 +122,7 @@ To construct, see NOTES section for PLANS properties and create a hash table.
 
 ```yaml
 Type: Microsoft.Graph.PowerShell.Models.IMicrosoftGraphPlannerPlan1[]
-Parameter Sets: UpdateExpanded
+Parameter Sets: UpdateExpanded1
 Aliases:
 
 Required: False
@@ -139,7 +140,7 @@ To construct, see NOTES section for TASKS properties and create a hash table.
 
 ```yaml
 Type: Microsoft.Graph.PowerShell.Models.IMicrosoftGraphPlannerTask1[]
-Parameter Sets: UpdateExpanded
+Parameter Sets: UpdateExpanded1
 Aliases:
 
 Required: False
@@ -185,7 +186,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Microsoft.Graph.PowerShell.Models.IMicrosoftGraphPlanner
+### Microsoft.Graph.PowerShell.Models.IMicrosoftGraphPlanner1
 
 ## OUTPUTS
 
@@ -200,7 +201,7 @@ COMPLEX PARAMETER PROPERTIES
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
-BODYPARAMETER <IMicrosoftGraphPlanner>: planner
+BODYPARAMETER <IMicrosoftGraphPlanner1>: planner
   - `[Id <String>]`: Read-only.
   - `[Buckets <IMicrosoftGraphPlannerBucket1[]>]`: Read-only. Nullable. Returns a collection of the specified buckets
     - `[Id <String>]`: Read-only.

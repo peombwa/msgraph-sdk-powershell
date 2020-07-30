@@ -940,6 +940,36 @@ paths:
         default:
           $ref: '#/components/responses/error'
       x-ms-docs-operation-type: function
+  /contacts/microsoft.graph.getAvailableExtensionProperties:
+    post:
+      tags:
+        - contacts.Actions
+      summary: Invoke action getAvailableExtensionProperties
+      operationId: contacts_getAvailableExtensionProperties
+      requestBody:
+        description: Action parameters
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                isSyncedFromOnPremises:
+                  type: boolean
+                  default: false
+                  nullable: true
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/microsoft.graph.extensionProperty'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: action
   /contacts/microsoft.graph.getByIds:
     post:
       tags:
@@ -1392,6 +1422,36 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/microsoft.graph.directoryObject'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: action
+  /contracts/microsoft.graph.getAvailableExtensionProperties:
+    post:
+      tags:
+        - contracts.Actions
+      summary: Invoke action getAvailableExtensionProperties
+      operationId: contracts_getAvailableExtensionProperties
+      requestBody:
+        description: Action parameters
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                isSyncedFromOnPremises:
+                  type: boolean
+                  default: false
+                  nullable: true
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/microsoft.graph.extensionProperty'
         default:
           $ref: '#/components/responses/error'
       x-ms-docs-operation-type: action
@@ -2690,6 +2750,36 @@ paths:
                 $ref: '#/components/schemas/microsoft.graph.directoryObject'
         default:
           $ref: '#/components/responses/error'
+  /devices/microsoft.graph.getAvailableExtensionProperties:
+    post:
+      tags:
+        - devices.Actions
+      summary: Invoke action getAvailableExtensionProperties
+      operationId: devices_getAvailableExtensionProperties
+      requestBody:
+        description: Action parameters
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                isSyncedFromOnPremises:
+                  type: boolean
+                  default: false
+                  nullable: true
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/microsoft.graph.extensionProperty'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: action
   /devices/microsoft.graph.getByIds:
     post:
       tags:
@@ -3539,6 +3629,36 @@ paths:
         default:
           $ref: '#/components/responses/error'
       x-ms-docs-operation-type: function
+  /directoryRoles/microsoft.graph.getAvailableExtensionProperties:
+    post:
+      tags:
+        - directoryRoles.Actions
+      summary: Invoke action getAvailableExtensionProperties
+      operationId: directoryRoles_getAvailableExtensionProperties
+      requestBody:
+        description: Action parameters
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                isSyncedFromOnPremises:
+                  type: boolean
+                  default: false
+                  nullable: true
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/microsoft.graph.extensionProperty'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: action
   /directoryRoles/microsoft.graph.getByIds:
     post:
       tags:
@@ -3983,6 +4103,36 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/microsoft.graph.directoryObject'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: action
+  /directoryRoleTemplates/microsoft.graph.getAvailableExtensionProperties:
+    post:
+      tags:
+        - directoryRoleTemplates.Actions
+      summary: Invoke action getAvailableExtensionProperties
+      operationId: directoryRoleTemplates_getAvailableExtensionProperties
+      requestBody:
+        description: Action parameters
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                isSyncedFromOnPremises:
+                  type: boolean
+                  default: false
+                  nullable: true
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/microsoft.graph.extensionProperty'
         default:
           $ref: '#/components/responses/error'
       x-ms-docs-operation-type: action
@@ -5277,6 +5427,41 @@ components:
       example:
         id: string (identifier)
         deletedDateTime: string (timestamp)
+    microsoft.graph.extensionProperty:
+      allOf:
+        - $ref: '#/components/schemas/microsoft.graph.directoryObject'
+        - title: extensionProperty
+          type: object
+          properties:
+            appDisplayName:
+              type: string
+              description: Display name of the application object on which this extension property is defined. Read-only.
+              nullable: true
+            name:
+              type: string
+              description: Name of the extension property. Not nullable.
+            dataType:
+              type: string
+              description: Specifies the data type of the value the extension property can hold. Following values are supported. Not nullable. Binary - 256 bytes maximumBooleanDateTime - Must be specified in ISO 8601 format. Will be stored in UTC.Integer - 32-bit value.LargeInteger - 64-bit value.String - 256 characters maximum
+            isSyncedFromOnPremises:
+              type: boolean
+              description: Indicates if this extension property was sycned from onpremises directory using Azure AD Connect. Read-only.
+              nullable: true
+            targetObjects:
+              type: array
+              items:
+                type: string
+              description: Following values are supported. Not nullable. UserGroupOrganizationDeviceApplication
+          description: Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
+      example:
+        id: string (identifier)
+        deletedDateTime: string (timestamp)
+        appDisplayName: string
+        name: string
+        dataType: string
+        isSyncedFromOnPremises: true
+        targetObjects:
+          - string
     microsoft.graph.contract:
       allOf:
         - $ref: '#/components/schemas/microsoft.graph.directoryObject'

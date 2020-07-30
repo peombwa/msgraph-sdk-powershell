@@ -1,6 +1,6 @@
 ---
 Module Name: Microsoft.Graph.Planner
-Module Guid: 4c75ca35-1152-4444-a278-2123e5158b99
+Module Guid: aec9cd75-af09-471b-960f-d4ec13043335
 Download Help Link: https://docs.microsoft.com/en-us/powershell/module/microsoft.graph.planner
 Help Version: 1.0.0.0
 Locale: en-US
@@ -11,6 +11,48 @@ Locale: en-US
 Microsoft Graph PowerShell Cmdlets
 
 ## Microsoft.Graph.Planner Cmdlets
+### [Get-MgGroupPlanner](Get-MgGroupPlanner.md)
+Get planner from groups
+
+### [Get-MgGroupPlannerPlan](Get-MgGroupPlannerPlan.md)
+Get plans from groups
+
+### [Get-MgGroupPlannerPlanBucket](Get-MgGroupPlannerPlanBucket.md)
+Get buckets from groups
+
+### [Get-MgGroupPlannerPlanBucketTask](Get-MgGroupPlannerPlanBucketTask.md)
+Get tasks from groups
+
+### [Get-MgGroupPlannerPlanBucketTaskAssignedToTaskBoardFormat](Get-MgGroupPlannerPlanBucketTaskAssignedToTaskBoardFormat.md)
+Get assignedToTaskBoardFormat from groups
+
+### [Get-MgGroupPlannerPlanBucketTaskBoardFormat](Get-MgGroupPlannerPlanBucketTaskBoardFormat.md)
+Get bucketTaskBoardFormat from groups
+
+### [Get-MgGroupPlannerPlanBucketTaskDetail](Get-MgGroupPlannerPlanBucketTaskDetail.md)
+Get details from groups
+
+### [Get-MgGroupPlannerPlanBucketTaskProgressTaskBoardFormat](Get-MgGroupPlannerPlanBucketTaskProgressTaskBoardFormat.md)
+Get progressTaskBoardFormat from groups
+
+### [Get-MgGroupPlannerPlanDetail](Get-MgGroupPlannerPlanDetail.md)
+Get details from groups
+
+### [Get-MgGroupPlannerPlanTask](Get-MgGroupPlannerPlanTask.md)
+Get tasks from groups
+
+### [Get-MgGroupPlannerPlanTaskAssignedToTaskBoardFormat](Get-MgGroupPlannerPlanTaskAssignedToTaskBoardFormat.md)
+Get assignedToTaskBoardFormat from groups
+
+### [Get-MgGroupPlannerPlanTaskBucketTaskBoardFormat](Get-MgGroupPlannerPlanTaskBucketTaskBoardFormat.md)
+Get bucketTaskBoardFormat from groups
+
+### [Get-MgGroupPlannerPlanTaskDetail](Get-MgGroupPlannerPlanTaskDetail.md)
+Get details from groups
+
+### [Get-MgGroupPlannerPlanTaskProgressTaskBoardFormat](Get-MgGroupPlannerPlanTaskProgressTaskBoardFormat.md)
+Get progressTaskBoardFormat from groups
+
 ### [Get-MgPlanner](Get-MgPlanner.md)
 Get planner
 
@@ -86,6 +128,75 @@ Get details from planner
 ### [Get-MgPlannerTaskProgressTaskBoardFormat](Get-MgPlannerTaskProgressTaskBoardFormat.md)
 Get progressTaskBoardFormat from planner
 
+### [Get-MgUserPlanner](Get-MgUserPlanner.md)
+Get planner from users
+
+### [Get-MgUserPlannerPlan](Get-MgUserPlannerPlan.md)
+Get plans from users
+
+### [Get-MgUserPlannerPlanBucket](Get-MgUserPlannerPlanBucket.md)
+Get buckets from users
+
+### [Get-MgUserPlannerPlanBucketTask](Get-MgUserPlannerPlanBucketTask.md)
+Get tasks from users
+
+### [Get-MgUserPlannerPlanBucketTaskAssignedToTaskBoardFormat](Get-MgUserPlannerPlanBucketTaskAssignedToTaskBoardFormat.md)
+Get assignedToTaskBoardFormat from users
+
+### [Get-MgUserPlannerPlanBucketTaskBoardFormat](Get-MgUserPlannerPlanBucketTaskBoardFormat.md)
+Get bucketTaskBoardFormat from users
+
+### [Get-MgUserPlannerPlanBucketTaskDetail](Get-MgUserPlannerPlanBucketTaskDetail.md)
+Get details from users
+
+### [Get-MgUserPlannerPlanBucketTaskProgressTaskBoardFormat](Get-MgUserPlannerPlanBucketTaskProgressTaskBoardFormat.md)
+Get progressTaskBoardFormat from users
+
+### [Get-MgUserPlannerPlanDetail](Get-MgUserPlannerPlanDetail.md)
+Get details from users
+
+### [Get-MgUserPlannerPlanTask](Get-MgUserPlannerPlanTask.md)
+Get tasks from users
+
+### [Get-MgUserPlannerPlanTaskAssignedToTaskBoardFormat](Get-MgUserPlannerPlanTaskAssignedToTaskBoardFormat.md)
+Get assignedToTaskBoardFormat from users
+
+### [Get-MgUserPlannerPlanTaskBucketTaskBoardFormat](Get-MgUserPlannerPlanTaskBucketTaskBoardFormat.md)
+Get bucketTaskBoardFormat from users
+
+### [Get-MgUserPlannerPlanTaskDetail](Get-MgUserPlannerPlanTaskDetail.md)
+Get details from users
+
+### [Get-MgUserPlannerPlanTaskProgressTaskBoardFormat](Get-MgUserPlannerPlanTaskProgressTaskBoardFormat.md)
+Get progressTaskBoardFormat from users
+
+### [Get-MgUserPlannerTask](Get-MgUserPlannerTask.md)
+Get tasks from users
+
+### [Get-MgUserPlannerTaskAssignedToTaskBoardFormat](Get-MgUserPlannerTaskAssignedToTaskBoardFormat.md)
+Get assignedToTaskBoardFormat from users
+
+### [Get-MgUserPlannerTaskBucketTaskBoardFormat](Get-MgUserPlannerTaskBucketTaskBoardFormat.md)
+Get bucketTaskBoardFormat from users
+
+### [Get-MgUserPlannerTaskDetail](Get-MgUserPlannerTaskDetail.md)
+Get details from users
+
+### [Get-MgUserPlannerTaskProgressTaskBoardFormat](Get-MgUserPlannerTaskProgressTaskBoardFormat.md)
+Get progressTaskBoardFormat from users
+
+### [New-MgGroupPlannerPlan](New-MgGroupPlannerPlan.md)
+Create new navigation property to plans for groups
+
+### [New-MgGroupPlannerPlanBucket](New-MgGroupPlannerPlanBucket.md)
+Create new navigation property to buckets for groups
+
+### [New-MgGroupPlannerPlanBucketTask](New-MgGroupPlannerPlanBucketTask.md)
+Create new navigation property to tasks for groups
+
+### [New-MgGroupPlannerPlanTask](New-MgGroupPlannerPlanTask.md)
+Create new navigation property to tasks for groups
+
 ### [New-MgPlannerBucket](New-MgPlannerBucket.md)
 Create new navigation property to buckets for planner
 
@@ -106,6 +217,63 @@ Create new navigation property to tasks for planner
 
 ### [New-MgPlannerTask](New-MgPlannerTask.md)
 Create new navigation property to tasks for planner
+
+### [New-MgUserPlannerPlan](New-MgUserPlannerPlan.md)
+Create new navigation property to plans for users
+
+### [New-MgUserPlannerPlanBucket](New-MgUserPlannerPlanBucket.md)
+Create new navigation property to buckets for users
+
+### [New-MgUserPlannerPlanBucketTask](New-MgUserPlannerPlanBucketTask.md)
+Create new navigation property to tasks for users
+
+### [New-MgUserPlannerPlanTask](New-MgUserPlannerPlanTask.md)
+Create new navigation property to tasks for users
+
+### [New-MgUserPlannerTask](New-MgUserPlannerTask.md)
+Create new navigation property to tasks for users
+
+### [Update-MgGroupPlanner](Update-MgGroupPlanner.md)
+Update the navigation property planner in groups
+
+### [Update-MgGroupPlannerPlan](Update-MgGroupPlannerPlan.md)
+Update the navigation property plans in groups
+
+### [Update-MgGroupPlannerPlanBucket](Update-MgGroupPlannerPlanBucket.md)
+Update the navigation property buckets in groups
+
+### [Update-MgGroupPlannerPlanBucketTask](Update-MgGroupPlannerPlanBucketTask.md)
+Update the navigation property tasks in groups
+
+### [Update-MgGroupPlannerPlanBucketTaskAssignedToTaskBoardFormat](Update-MgGroupPlannerPlanBucketTaskAssignedToTaskBoardFormat.md)
+Update the navigation property assignedToTaskBoardFormat in groups
+
+### [Update-MgGroupPlannerPlanBucketTaskBoardFormat](Update-MgGroupPlannerPlanBucketTaskBoardFormat.md)
+Update the navigation property bucketTaskBoardFormat in groups
+
+### [Update-MgGroupPlannerPlanBucketTaskDetail](Update-MgGroupPlannerPlanBucketTaskDetail.md)
+Update the navigation property details in groups
+
+### [Update-MgGroupPlannerPlanBucketTaskProgressTaskBoardFormat](Update-MgGroupPlannerPlanBucketTaskProgressTaskBoardFormat.md)
+Update the navigation property progressTaskBoardFormat in groups
+
+### [Update-MgGroupPlannerPlanDetail](Update-MgGroupPlannerPlanDetail.md)
+Update the navigation property details in groups
+
+### [Update-MgGroupPlannerPlanTask](Update-MgGroupPlannerPlanTask.md)
+Update the navigation property tasks in groups
+
+### [Update-MgGroupPlannerPlanTaskAssignedToTaskBoardFormat](Update-MgGroupPlannerPlanTaskAssignedToTaskBoardFormat.md)
+Update the navigation property assignedToTaskBoardFormat in groups
+
+### [Update-MgGroupPlannerPlanTaskBucketTaskBoardFormat](Update-MgGroupPlannerPlanTaskBucketTaskBoardFormat.md)
+Update the navigation property bucketTaskBoardFormat in groups
+
+### [Update-MgGroupPlannerPlanTaskDetail](Update-MgGroupPlannerPlanTaskDetail.md)
+Update the navigation property details in groups
+
+### [Update-MgGroupPlannerPlanTaskProgressTaskBoardFormat](Update-MgGroupPlannerPlanTaskProgressTaskBoardFormat.md)
+Update the navigation property progressTaskBoardFormat in groups
 
 ### [Update-MgPlanner](Update-MgPlanner.md)
 Update planner
@@ -181,4 +349,61 @@ Update the navigation property details in planner
 
 ### [Update-MgPlannerTaskProgressTaskBoardFormat](Update-MgPlannerTaskProgressTaskBoardFormat.md)
 Update the navigation property progressTaskBoardFormat in planner
+
+### [Update-MgUserPlanner](Update-MgUserPlanner.md)
+Update the navigation property planner in users
+
+### [Update-MgUserPlannerPlan](Update-MgUserPlannerPlan.md)
+Update the navigation property plans in users
+
+### [Update-MgUserPlannerPlanBucket](Update-MgUserPlannerPlanBucket.md)
+Update the navigation property buckets in users
+
+### [Update-MgUserPlannerPlanBucketTask](Update-MgUserPlannerPlanBucketTask.md)
+Update the navigation property tasks in users
+
+### [Update-MgUserPlannerPlanBucketTaskAssignedToTaskBoardFormat](Update-MgUserPlannerPlanBucketTaskAssignedToTaskBoardFormat.md)
+Update the navigation property assignedToTaskBoardFormat in users
+
+### [Update-MgUserPlannerPlanBucketTaskBoardFormat](Update-MgUserPlannerPlanBucketTaskBoardFormat.md)
+Update the navigation property bucketTaskBoardFormat in users
+
+### [Update-MgUserPlannerPlanBucketTaskDetail](Update-MgUserPlannerPlanBucketTaskDetail.md)
+Update the navigation property details in users
+
+### [Update-MgUserPlannerPlanBucketTaskProgressTaskBoardFormat](Update-MgUserPlannerPlanBucketTaskProgressTaskBoardFormat.md)
+Update the navigation property progressTaskBoardFormat in users
+
+### [Update-MgUserPlannerPlanDetail](Update-MgUserPlannerPlanDetail.md)
+Update the navigation property details in users
+
+### [Update-MgUserPlannerPlanTask](Update-MgUserPlannerPlanTask.md)
+Update the navigation property tasks in users
+
+### [Update-MgUserPlannerPlanTaskAssignedToTaskBoardFormat](Update-MgUserPlannerPlanTaskAssignedToTaskBoardFormat.md)
+Update the navigation property assignedToTaskBoardFormat in users
+
+### [Update-MgUserPlannerPlanTaskBucketTaskBoardFormat](Update-MgUserPlannerPlanTaskBucketTaskBoardFormat.md)
+Update the navigation property bucketTaskBoardFormat in users
+
+### [Update-MgUserPlannerPlanTaskDetail](Update-MgUserPlannerPlanTaskDetail.md)
+Update the navigation property details in users
+
+### [Update-MgUserPlannerPlanTaskProgressTaskBoardFormat](Update-MgUserPlannerPlanTaskProgressTaskBoardFormat.md)
+Update the navigation property progressTaskBoardFormat in users
+
+### [Update-MgUserPlannerTask](Update-MgUserPlannerTask.md)
+Update the navigation property tasks in users
+
+### [Update-MgUserPlannerTaskAssignedToTaskBoardFormat](Update-MgUserPlannerTaskAssignedToTaskBoardFormat.md)
+Update the navigation property assignedToTaskBoardFormat in users
+
+### [Update-MgUserPlannerTaskBucketTaskBoardFormat](Update-MgUserPlannerTaskBucketTaskBoardFormat.md)
+Update the navigation property bucketTaskBoardFormat in users
+
+### [Update-MgUserPlannerTaskDetail](Update-MgUserPlannerTaskDetail.md)
+Update the navigation property details in users
+
+### [Update-MgUserPlannerTaskProgressTaskBoardFormat](Update-MgUserPlannerTaskProgressTaskBoardFormat.md)
+Update the navigation property progressTaskBoardFormat in users
 

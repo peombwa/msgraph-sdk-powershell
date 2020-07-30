@@ -1553,6 +1553,36 @@ paths:
         default:
           $ref: '#/components/responses/error'
       x-ms-docs-operation-type: function
+  /applications/microsoft.graph.getAvailableExtensionProperties:
+    post:
+      tags:
+        - applications.Actions
+      summary: Invoke action getAvailableExtensionProperties
+      operationId: applications_getAvailableExtensionProperties
+      requestBody:
+        description: Action parameters
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                isSyncedFromOnPremises:
+                  type: boolean
+                  default: false
+                  nullable: true
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/microsoft.graph.extensionProperty'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: action
   /applications/microsoft.graph.getByIds:
     post:
       tags:
@@ -4468,6 +4498,54 @@ paths:
                 $ref: '#/components/schemas/microsoft.graph.directoryObject'
         default:
           $ref: '#/components/responses/error'
+  /servicePrincipals/microsoft.graph.delta():
+    get:
+      tags:
+        - servicePrincipals.Functions
+      summary: Invoke function delta
+      operationId: servicePrincipals_delta
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/microsoft.graph.servicePrincipal'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: function
+  /servicePrincipals/microsoft.graph.getAvailableExtensionProperties:
+    post:
+      tags:
+        - servicePrincipals.Actions
+      summary: Invoke action getAvailableExtensionProperties
+      operationId: servicePrincipals_getAvailableExtensionProperties
+      requestBody:
+        description: Action parameters
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                isSyncedFromOnPremises:
+                  type: boolean
+                  default: false
+                  nullable: true
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/microsoft.graph.extensionProperty'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: action
   /servicePrincipals/microsoft.graph.getByIds:
     post:
       tags:
@@ -5048,6 +5126,7 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/microsoft.graph.claimsMappingPolicy'
+              description: The claimsMappingPolicies assigned to this service principal.
             endpoints:
               type: array
               items:
@@ -5057,6 +5136,7 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/microsoft.graph.homeRealmDiscoveryPolicy'
+              description: The homeRealmDiscoveryPolicies assigned to this service principal.
             oauth2PermissionGrants:
               type: array
               items:
@@ -5090,10 +5170,12 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/microsoft.graph.tokenIssuancePolicy'
+              description: The tokenIssuancePolicies assigned to this service principal.
             tokenLifetimePolicies:
               type: array
               items:
                 $ref: '#/components/schemas/microsoft.graph.tokenLifetimePolicy'
+              description: The tokenLifetimePolicies assigned to this service principal.
           description: Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
       example:
         id: string (identifier)

@@ -1,6 +1,6 @@
 ---
 Module Name: Microsoft.Graph.Reports
-Module Guid: 9a19614b-830d-4660-a407-fc8f91e19e69
+Module Guid: 9b56e95a-2a3a-4e90-8900-2162191e52bd
 Download Help Link: https://docs.microsoft.com/en-us/powershell/module/microsoft.graph.reports
 Help Version: 1.0.0.0
 Locale: en-US
@@ -229,7 +229,4 @@ Invoke function managedDeviceEnrollmentFailureDetails
 
 ### [Invoke-MgTopReport](Invoke-MgTopReport.md)
 Invoke function managedDeviceEnrollmentTopFailures
-
-### [Update-MgReportRoot](Update-MgReportRoot.md)
-Update reports
 

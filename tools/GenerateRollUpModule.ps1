@@ -4,7 +4,7 @@
 Param(
     [string] $RepositoryApiKey,
     [string] $RepositoryName = "PSGallery",
-    [string] $ModuleMappingConfigPath = (Join-Path $PSScriptRoot "..\config\ModulesMapping.jsonc"),
+    [string] $ModuleMappingConfigPath = (Join-Path $PSScriptRoot "..\config\ModulesMappingBeta.jsonc"),
     [int] $ModulePreviewNumber = -1,
     [switch] $Pack,
     [switch] $Publish

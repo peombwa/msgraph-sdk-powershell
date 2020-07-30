@@ -1,30 +1,7 @@
 {
+  "resources": [],
   "operations": {
-    "/users/{user-id}/insights/trending/{trending-id}/resource": {
-      "originalLocation": "/openApiDocs/v1.0/People.yml",
-      "apiVersion": "v1.0"
-    },
     "/users/{user-id}/insights/used/{usedInsight-id}": {
-      "originalLocation": "/openApiDocs/v1.0/People.yml",
-      "apiVersion": "v1.0"
-    },
-    "/users/{user-id}/insights/shared/{sharedInsight-id}/resource": {
-      "originalLocation": "/openApiDocs/v1.0/People.yml",
-      "apiVersion": "v1.0"
-    },
-    "/users/{user-id}/insights/used/{usedInsight-id}/resource": {
-      "originalLocation": "/openApiDocs/v1.0/People.yml",
-      "apiVersion": "v1.0"
-    },
-    "/users/{user-id}/insights/shared/{sharedInsight-id}": {
-      "originalLocation": "/openApiDocs/v1.0/People.yml",
-      "apiVersion": "v1.0"
-    },
-    "/users/{user-id}/people": {
-      "originalLocation": "/openApiDocs/v1.0/People.yml",
-      "apiVersion": "v1.0"
-    },
-    "/users/{user-id}/insights/used": {
       "originalLocation": "/openApiDocs/v1.0/People.yml",
       "apiVersion": "v1.0"
     },
@@ -32,7 +9,15 @@
       "originalLocation": "/openApiDocs/v1.0/People.yml",
       "apiVersion": "v1.0"
     },
-    "/users/{user-id}/people/{person-id}": {
+    "/users/{user-id}/people": {
+      "originalLocation": "/openApiDocs/v1.0/People.yml",
+      "apiVersion": "v1.0"
+    },
+    "/users/{user-id}/insights/trending/{trending-id}/resource": {
+      "originalLocation": "/openApiDocs/v1.0/People.yml",
+      "apiVersion": "v1.0"
+    },
+    "/users/{user-id}/insights/used": {
       "originalLocation": "/openApiDocs/v1.0/People.yml",
       "apiVersion": "v1.0"
     },
@@ -40,18 +25,33 @@
       "originalLocation": "/openApiDocs/v1.0/People.yml",
       "apiVersion": "v1.0"
     },
-    "/users/{user-id}/insights/shared/{sharedInsight-id}/lastSharedMethod": {
+    "/users/{user-id}/insights/trending/{trending-id}": {
       "originalLocation": "/openApiDocs/v1.0/People.yml",
       "apiVersion": "v1.0"
     },
-    "/users/{user-id}/insights/trending/{trending-id}": {
+    "/users/{user-id}/insights/used/{usedInsight-id}/resource": {
+      "originalLocation": "/openApiDocs/v1.0/People.yml",
+      "apiVersion": "v1.0"
+    },
+    "/users/{user-id}/insights/shared/{sharedInsight-id}/resource": {
       "originalLocation": "/openApiDocs/v1.0/People.yml",
       "apiVersion": "v1.0"
     },
     "/users/{user-id}/insights/shared": {
       "originalLocation": "/openApiDocs/v1.0/People.yml",
       "apiVersion": "v1.0"
+    },
+    "/users/{user-id}/insights/shared/{sharedInsight-id}/lastSharedMethod": {
+      "originalLocation": "/openApiDocs/v1.0/People.yml",
+      "apiVersion": "v1.0"
+    },
+    "/users/{user-id}/insights/shared/{sharedInsight-id}": {
+      "originalLocation": "/openApiDocs/v1.0/People.yml",
+      "apiVersion": "v1.0"
+    },
+    "/users/{user-id}/people/{person-id}": {
+      "originalLocation": "/openApiDocs/v1.0/People.yml",
+      "apiVersion": "v1.0"
     }
-  },
-  "resources": []
+  }
 }

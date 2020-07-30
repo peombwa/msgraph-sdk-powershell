@@ -1,18 +1,19 @@
 {
+  "resources": [],
   "operations": {
-    "/directoryObjects": {
-      "originalLocation": "/openApiDocs/beta/DirectoryObjects.yml",
-      "apiVersion": "v1.0-beta"
-    },
     "/directoryObjects/{directoryObject-id}/microsoft.graph.checkMemberObjects": {
       "originalLocation": "/openApiDocs/beta/DirectoryObjects.yml",
       "apiVersion": "v1.0-beta"
     },
-    "/directoryObjects/microsoft.graph.getUserOwnedObjects": {
+    "/directoryObjects/microsoft.graph.validateProperties": {
       "originalLocation": "/openApiDocs/beta/DirectoryObjects.yml",
       "apiVersion": "v1.0-beta"
     },
-    "/directoryObjects/{directoryObject-id}/microsoft.graph.checkMemberGroups": {
+    "/directoryObjects/{directoryObject-id}/microsoft.graph.getMemberObjects": {
+      "originalLocation": "/openApiDocs/beta/DirectoryObjects.yml",
+      "apiVersion": "v1.0-beta"
+    },
+    "/directoryObjects/{directoryObject-id}": {
       "originalLocation": "/openApiDocs/beta/DirectoryObjects.yml",
       "apiVersion": "v1.0-beta"
     },
@@ -24,11 +25,11 @@
       "originalLocation": "/openApiDocs/beta/DirectoryObjects.yml",
       "apiVersion": "v1.0-beta"
     },
-    "/directoryObjects/{directoryObject-id}/microsoft.graph.getMemberObjects": {
+    "/directoryObjects": {
       "originalLocation": "/openApiDocs/beta/DirectoryObjects.yml",
       "apiVersion": "v1.0-beta"
     },
-    "/directoryObjects/microsoft.graph.validateProperties": {
+    "/directoryObjects/microsoft.graph.getUserOwnedObjects": {
       "originalLocation": "/openApiDocs/beta/DirectoryObjects.yml",
       "apiVersion": "v1.0-beta"
     },
@@ -36,10 +37,9 @@
       "originalLocation": "/openApiDocs/beta/DirectoryObjects.yml",
       "apiVersion": "v1.0-beta"
     },
-    "/directoryObjects/{directoryObject-id}": {
+    "/directoryObjects/{directoryObject-id}/microsoft.graph.checkMemberGroups": {
       "originalLocation": "/openApiDocs/beta/DirectoryObjects.yml",
       "apiVersion": "v1.0-beta"
     }
-  },
-  "resources": []
+  }
 }

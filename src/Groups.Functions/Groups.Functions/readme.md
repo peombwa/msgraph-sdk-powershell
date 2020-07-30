@@ -30,8 +30,8 @@ require:
   - $(this-folder)/../../../profiles/$(title)/readme.md
 title: $(service-name)
 subject-prefix: ''
-
 ```
+
 ### Versioning
 
 ``` yaml

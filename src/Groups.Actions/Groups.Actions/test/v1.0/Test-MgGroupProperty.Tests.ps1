@@ -12,14 +12,6 @@ while(-not $mockingPath) {
 . ($mockingPath | Select-Object -First 1).FullName
 
 Describe 'Test-MgGroupProperty' {
-    It 'ValidateExpanded' -skip {
-        { throw [System.NotImplementedException] } | Should -Not -Throw
-    }
-
-    It 'Validate' -skip {
-        { throw [System.NotImplementedException] } | Should -Not -Throw
-    }
-
     It 'ValidateViaIdentityExpanded' -skip {
         { throw [System.NotImplementedException] } | Should -Not -Throw
     }
