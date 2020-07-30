@@ -76,7 +76,7 @@ jobs:
     displayName: 'NuGet push'
     inputs:
       command: push
-      publishVstsFeed: 'PowerShell%20CI-CD/PowerShell_Feed'
+      publishVstsFeed: 'fcaf8b61-0c0d-4f11-926c-53e6d753fd77/PowerShell_Feed'
       allowPackageConflicts: true
   
   # - task: PublishBuildArtifacts@1
