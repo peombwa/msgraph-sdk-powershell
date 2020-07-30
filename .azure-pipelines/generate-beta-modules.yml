@@ -70,6 +70,15 @@ jobs:
         }
       pwsh: true
   
+  - task: NuGetAuthenticate@0
+    displayName: 'NuGet Authenticate'
+  - task: NuGetCommand@2
+    displayName: 'NuGet push'
+    inputs:
+      command: push
+      publishVstsFeed: 'PowerShell%20CI-CD/PowerShell_Feed'
+      allowPackageConflicts: true
+  
   # - task: PublishBuildArtifacts@1
   #   displayName: Publish Artifact Beta Modules
   #   inputs:
