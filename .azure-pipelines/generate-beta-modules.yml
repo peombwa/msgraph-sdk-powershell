@@ -28,11 +28,6 @@ jobs:
     vmImage: 'windows-latest'
 
   steps:
-  - task: securedevelopmentteam.vss-secure-development-tools.build-task-credscan.CredScan@2
-    displayName: 'Run CredScan'
-    inputs:
-     debugMode: false
-  
   # Install Node
   - task: NodeTool@0
     displayName: Node install
