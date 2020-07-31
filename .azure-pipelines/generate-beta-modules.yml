@@ -98,7 +98,7 @@ jobs:
     inputs:
      targetType: inline
      script: |
-        Find-ModuleMicrosoft.Graph.People -Repository PowerShellFeed
+        Find-Module Microsoft.Graph.People -Repository PowerShellFeed
      pwsh: true
   
   # - task: PublishBuildArtifacts@1
