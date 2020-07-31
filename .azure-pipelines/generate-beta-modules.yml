@@ -101,6 +101,14 @@ jobs:
         Find-Module Microsoft.Graph.People -Repository PowerShellFeed
      pwsh: true
   
+  - task: PowerShell@2
+    displayName: 'Register Package Feed'
+    inputs:
+     targetType: inline
+     script: |
+        Install-Module Microsoft.Graph.People -Repository PowerShellFeed
+     pwsh: true
+  
   # - task: PublishBuildArtifacts@1
   #   displayName: Publish Artifact Beta Modules
   #   inputs:
