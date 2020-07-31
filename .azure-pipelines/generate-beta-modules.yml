@@ -78,6 +78,28 @@ jobs:
       command: push
       publishVstsFeed: 'fcaf8b61-0c0d-4f11-926c-53e6d753fd77/PowerShell_Feed'
       allowPackageConflicts: true
+      
+  - task: PowerShell@2
+    displayName: 'Register Package Feed'
+    inputs:
+     targetType: inline
+     script: |
+        $V2 = 'https://pkgs.dev.azure.com/peterombwa0832/fcaf8b61-0c0d-4f11-926c-53e6d753fd77/_packaging/PowerShell_Feed/nuget/v2'
+        $Params = @{
+            'Name' = 'PowerShellFeed'
+            'InstallationPolicy' = 'Trusted'
+            'SourceLocation' = $V2
+        }
+        Register-PSRepository @Params
+     pwsh: true
+  
+  - task: PowerShell@2
+    displayName: 'Register Package Feed'
+    inputs:
+     targetType: inline
+     script: |
+        Find-ModuleMicrosoft.Graph.People -Repository PowerShellFeed
+     pwsh: true
   
   # - task: PublishBuildArtifacts@1
   #   displayName: Publish Artifact Beta Modules
