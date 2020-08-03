@@ -107,10 +107,9 @@ jobs:
   - task: GitHubComment@0
     displayName: 'Update: GitHub PR'
     inputs:
-      comment: 'Install-Module with build # $(BUILD_NUMBER) from $(PS_DEV_FEED) to test.'
+      comment: 'Install-Module with build number $(BUILD_NUMBER) from $(PS_DEV_FEED) to test.'
       gitHubConnection: 'github.com_peombwa'
       repositoryName: '$(Build.Repository.Name)'
-      id: 1
   
   - task: PowerShell@2
     displayName: 'Register Package Feed'
