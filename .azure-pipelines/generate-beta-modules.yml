@@ -30,6 +30,16 @@ jobs:
     vmImage: 'windows-latest'
 
   steps:
+  - task: GitHubComment@0
+    displayName: 'Update: GitHub PR'
+    inputs:
+      comment: 'Install-Module with build number $(BUILD_NUMBER) from $(PS_DEV_FEED) to test.'
+      gitHubConnection: 'github.com_peombwa'
+      repositoryName: '$(Build.Repository.Name)'
+      id: '1'
+  
+  - script: 'Id is $(System.PullRequest.PullRequestId) - $(System.PullRequest.PullRequestNumber	)'
+  
   # Install Node
   - task: NodeTool@0
     displayName: Node install
@@ -105,14 +115,6 @@ jobs:
      script: |
         Find-Module Microsoft.Graph.People -Repository $(PS_DEV_FEED)
      pwsh: true
-  
-  - task: GitHubComment@0
-    displayName: 'Update: GitHub PR'
-    inputs:
-      comment: 'Install-Module with build number $(BUILD_NUMBER) from $(PS_DEV_FEED) to test.'
-      gitHubConnection: 'github.com_peombwa'
-      repositoryName: '$(Build.Repository.Name)'
-      id: '$(System.PullRequest.PullRequestId)'
   
   - task: PowerShell@2
     displayName: 'Register Package Feed'
