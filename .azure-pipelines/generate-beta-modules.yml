@@ -19,6 +19,8 @@ variables:
   AUTH_MODULE_PATH: 'src\Authentication\Authentication\bin\'
   AUTH_MODULE_DLL_PATTERN: 'Microsoft.Graph.Authentication.dll'
   MODULE_MAPPING_CONFIG_BETA_PATH: '$(System.DefaultWorkingDirectory)/config/ModulesMappingBeta.jsonc'
+  BUILD_NUMBER: $[format('{0:yyMMddHHmm}', pipeline.startTime)]
+  PS_DEV_FEED: PowerShellFeed
 
 jobs:
 - job: MSGraphPSSDKGeneration
@@ -89,7 +91,7 @@ jobs:
      script: |
         $V2 = 'https://pkgs.dev.azure.com/peterombwa0832/fcaf8b61-0c0d-4f11-926c-53e6d753fd77/_packaging/PowerShell_Feed/nuget/v2'
         $Params = @{
-            'Name' = 'PowerShellFeed'
+            'Name' = '$(PS_DEV_FEED)'
             'InstallationPolicy' = 'Trusted'
             'SourceLocation' = $V2
         }
@@ -101,7 +103,7 @@ jobs:
     inputs:
      targetType: inline
      script: |
-        Find-Module Microsoft.Graph.People -Repository PowerShellFeed
+        Find-Module Microsoft.Graph.People -Repository $(PS_DEV_FEED)
      pwsh: true
   
   - task: GitHubComment@0
