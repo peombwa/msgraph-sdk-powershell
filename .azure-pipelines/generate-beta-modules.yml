@@ -38,7 +38,14 @@ jobs:
       repositoryName: '$(Build.Repository.Name)'
       id: '1'
   
-  - script: 'Id is $(System.PullRequest.PullRequestId) - $(System.PullRequest.PullRequestNumber	)'
+  - task: PowerShell@2
+    displayName: 'Test'
+    inputs:
+      targetType: 'inline'
+      script: |
+        Write-Host Id is $(System.PullRequest.PullRequestId) and $(System.PullRequest.PullRequestNumber)
+      pwsh: true
+    enabled: false
   
   # Install Node
   - task: NodeTool@0
