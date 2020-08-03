@@ -47,7 +47,7 @@ jobs:
     displayName: 'Build Auth Modules'
     inputs:
       filePath: '$(System.DefaultWorkingDirectory)/tools/GenerateAuthenticationModule.ps1'
-      arguments: '-Build -BuildWhenEqual'
+      arguments: '-ArtifactsLocation $(Build.ArtifactStagingDirectory) -Build -BuildWhenEqual -EnableSigning'
       pwsh: true
   
   - task: PowerShell@2
