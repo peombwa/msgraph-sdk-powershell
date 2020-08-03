@@ -45,7 +45,7 @@ jobs:
       script: |
         Write-Host Id is $(System.PullRequest.PullRequestId) and $(System.PullRequest.PullRequestNumber)
       pwsh: true
-    enabled: false
+    enabled: true
   
   # Install Node
   - task: NodeTool@0
