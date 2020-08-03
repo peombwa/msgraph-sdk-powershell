@@ -12,27 +12,27 @@ Invoke action cancel
 
 ## SYNTAX
 
-### CancelExpanded1 (Default)
+### CancelExpanded (Default)
 ```
-Stop-MgUserCalendarEventInstance -EventId <String> -EventId1 <String> -UserId <String> [-Comment <String>]
+Stop-MgUserCalendarEventInstance -CalendarId <String> -EventId <String> -EventId1 <String> -UserId <String>
+ [-Comment <String>] [-PassThru] [-Confirm] [-WhatIf] [<CommonParameters>]
+```
+
+### Cancel
+```
+Stop-MgUserCalendarEventInstance -CalendarId <String> -EventId <String> -EventId1 <String> -UserId <String>
+ -BodyParameter <IPaths12U4KvyUsersUserIdCalendarsCalendarIdEventsEventIdInstancesEventId1MicrosoftGraphCancelPostRequestbodyContentApplicationJsonSchema>
  [-PassThru] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
-### Cancel1
-```
-Stop-MgUserCalendarEventInstance -EventId <String> -EventId1 <String> -UserId <String>
- -BodyParameter <IPathsRonih1UsersUserIdCalendarEventsEventIdInstancesEventId1MicrosoftGraphCancelPostRequestbodyContentApplicationJsonSchema>
- [-PassThru] [-Confirm] [-WhatIf] [<CommonParameters>]
-```
-
-### CancelViaIdentity1
+### CancelViaIdentity
 ```
 Stop-MgUserCalendarEventInstance -InputObject <IUsersActionsIdentity>
- -BodyParameter <IPathsRonih1UsersUserIdCalendarEventsEventIdInstancesEventId1MicrosoftGraphCancelPostRequestbodyContentApplicationJsonSchema>
+ -BodyParameter <IPaths12U4KvyUsersUserIdCalendarsCalendarIdEventsEventIdInstancesEventId1MicrosoftGraphCancelPostRequestbodyContentApplicationJsonSchema>
  [-PassThru] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
-### CancelViaIdentityExpanded1
+### CancelViaIdentityExpanded
 ```
 Stop-MgUserCalendarEventInstance -InputObject <IUsersActionsIdentity> [-Comment <String>] [-PassThru]
  [-Confirm] [-WhatIf] [<CommonParameters>]
@@ -68,8 +68,8 @@ PS C:\> {{ Add code here }}
 To construct, see NOTES section for BODYPARAMETER properties and create a hash table.
 
 ```yaml
-Type: Microsoft.Graph.PowerShell.Models.IPathsRonih1UsersUserIdCalendarEventsEventIdInstancesEventId1MicrosoftGraphCancelPostRequestbodyContentApplicationJsonSchema
-Parameter Sets: Cancel1, CancelViaIdentity1
+Type: Microsoft.Graph.PowerShell.Models.IPaths12U4KvyUsersUserIdCalendarsCalendarIdEventsEventIdInstancesEventId1MicrosoftGraphCancelPostRequestbodyContentApplicationJsonSchema
+Parameter Sets: Cancel, CancelViaIdentity
 Aliases:
 
 Required: True
@@ -79,12 +79,27 @@ Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 
+### -CalendarId
+key: calendar-id of calendar
+
+```yaml
+Type: System.String
+Parameter Sets: Cancel, CancelExpanded
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -Comment
 .
 
 ```yaml
 Type: System.String
-Parameter Sets: CancelExpanded1, CancelViaIdentityExpanded1
+Parameter Sets: CancelExpanded, CancelViaIdentityExpanded
 Aliases:
 
 Required: False
@@ -99,7 +114,7 @@ key: event-id of event
 
 ```yaml
 Type: System.String
-Parameter Sets: Cancel1, CancelExpanded1
+Parameter Sets: Cancel, CancelExpanded
 Aliases:
 
 Required: True
@@ -114,7 +129,7 @@ key: event-id of event
 
 ```yaml
 Type: System.String
-Parameter Sets: Cancel1, CancelExpanded1
+Parameter Sets: Cancel, CancelExpanded
 Aliases:
 
 Required: True
@@ -130,7 +145,7 @@ To construct, see NOTES section for INPUTOBJECT properties and create a hash tab
 
 ```yaml
 Type: Microsoft.Graph.PowerShell.Models.IUsersActionsIdentity
-Parameter Sets: CancelViaIdentity1, CancelViaIdentityExpanded1
+Parameter Sets: CancelViaIdentity, CancelViaIdentityExpanded
 Aliases:
 
 Required: True
@@ -160,7 +175,7 @@ key: user-id of user
 
 ```yaml
 Type: System.String
-Parameter Sets: Cancel1, CancelExpanded1
+Parameter Sets: Cancel, CancelExpanded
 Aliases:
 
 Required: True
@@ -206,7 +221,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Microsoft.Graph.PowerShell.Models.IPathsRonih1UsersUserIdCalendarEventsEventIdInstancesEventId1MicrosoftGraphCancelPostRequestbodyContentApplicationJsonSchema
+### Microsoft.Graph.PowerShell.Models.IPaths12U4KvyUsersUserIdCalendarsCalendarIdEventsEventIdInstancesEventId1MicrosoftGraphCancelPostRequestbodyContentApplicationJsonSchema
 
 ### Microsoft.Graph.PowerShell.Models.IUsersActionsIdentity
 
@@ -223,7 +238,7 @@ COMPLEX PARAMETER PROPERTIES
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
-BODYPARAMETER <IPathsRonih1UsersUserIdCalendarEventsEventIdInstancesEventId1MicrosoftGraphCancelPostRequestbodyContentApplicationJsonSchema>: .
+BODYPARAMETER <IPaths12U4KvyUsersUserIdCalendarsCalendarIdEventsEventIdInstancesEventId1MicrosoftGraphCancelPostRequestbodyContentApplicationJsonSchema>: .
   - `[Comment <String>]`: 
 
 INPUTOBJECT <IUsersActionsIdentity>: Identity Parameter

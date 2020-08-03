@@ -14,8 +14,8 @@ Invoke function managedDeviceEnrollmentFailureDetails
 
 ### Managed (Default)
 ```
-Invoke-MgManagedReportDeviceEnrollmentFailureDetail2B3D -Filter <String> -PageSize <Int32> -Skip <Int32>
- -SkipToken <String> -OutFile <String> [-PassThru] [<CommonParameters>]
+Invoke-MgManagedReportDeviceEnrollmentFailureDetail2B3D -Filter <String> -Skip <Int32> -SkipToken <String>
+ -Top <Int32> -OutFile <String> [-PassThru] [<CommonParameters>]
 ```
 
 ### ManagedViaIdentity
@@ -95,21 +95,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -PageSize
-.
-
-```yaml
-Type: System.Int32
-Parameter Sets: Managed
-Aliases: Top, Limit
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -PassThru
 Returns true when the command succeeds
 
@@ -147,6 +132,21 @@ Accept wildcard characters: False
 Type: System.String
 Parameter Sets: Managed
 Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Top
+.
+
+```yaml
+Type: System.Int32
+Parameter Sets: Managed
+Aliases: Limit
 
 Required: True
 Position: Named

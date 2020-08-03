@@ -1,6 +1,6 @@
 ---
 Module Name: Microsoft.Graph.Security
-Module Guid: 85ad1e70-3cd4-406c-be3f-656c3af49d4f
+Module Guid: 348614c9-f64d-4d22-8a80-2238e8691013
 Download Help Link: https://docs.microsoft.com/en-us/powershell/module/microsoft.graph.security
 Help Version: 1.0.0.0
 Locale: en-US
@@ -95,14 +95,17 @@ Invoke action cancelSecurityAction
 ### [Submit-MgSecurityTiIndicator](Submit-MgSecurityTiIndicator.md)
 Invoke action submitTiIndicators
 
+### [Update-MgMultipleSecurityAlert](Update-MgMultipleSecurityAlert.md)
+Invoke action updateAlerts
+
+### [Update-MgMultipleSecurityTiIndicator](Update-MgMultipleSecurityTiIndicator.md)
+Invoke action updateTiIndicators
+
 ### [Update-MgSecurityAction](Update-MgSecurityAction.md)
 Update the navigation property securityActions in Security
 
 ### [Update-MgSecurityAlert](Update-MgSecurityAlert.md)
 Update the navigation property alerts in Security
-
-### [Update-MgSecurityAlertMultiple](Update-MgSecurityAlertMultiple.md)
-Invoke action updateAlerts
 
 ### [Update-MgSecurityCloudAppSecurityProfile](Update-MgSecurityCloudAppSecurityProfile.md)
 Update the navigation property cloudAppSecurityProfiles in Security
@@ -130,9 +133,6 @@ Update the navigation property secureScoreControlProfiles in Security
 
 ### [Update-MgSecurityTiIndicator](Update-MgSecurityTiIndicator.md)
 Update the navigation property tiIndicators in Security
-
-### [Update-MgSecurityTiIndicatorMultiple](Update-MgSecurityTiIndicatorMultiple.md)
-Invoke action updateTiIndicators
 
 ### [Update-MgSecurityUserSecurityProfile](Update-MgSecurityUserSecurityProfile.md)
 Update the navigation property userSecurityProfiles in Security

@@ -1,41 +1,40 @@
 ﻿# Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License.
+[CmdletBinding()]
 Param(
-    [string] $RepositoryApiKey,
     [string] $RepositoryName = "PSGallery",
     [int] $ModulePreviewNumber = -1,
-    [string] $ModuleMappingConfigPath = (Join-Path $PSScriptRoot "..\config\ModulesMapping.jsonc"),
+    [string] $ModuleMappingConfigPath = (Join-Path $PSScriptRoot "..\config\ModulesMappingBeta.jsonc"),
     [switch] $UpdateAutoRest,
     [switch] $Build,
     [switch] $Pack,
-    [switch] $Publish,
     [switch] $EnableSigning,
     [switch] $SkipVersionCheck
 )
-enum VersionState {
-    Invalid
-    Valid
-    EqualToFeed
-    NotOnFeed
-}
 $ErrorActionPreference = 'Stop'
 if ($PSEdition -ne 'Core') {
     Write-Error 'This script requires PowerShell Core to execute. [Note] Generated cmdlets will work in both PowerShell Core or Windows PowerShell.'
 }
 # Install Powershell-yaml
+$ExistingAuthModule = Find-Module "Microsoft.Graph.Authentication"
 if (!(Get-Module -Name powershell-yaml -ListAvailable)) {
     Install-Module powershell-yaml -Force   
 }
+# Install module locally in order to specify it as a dependency for other modules down the generation pipeline.
+# https://stackoverflow.com/questions/46216038/how-do-i-define-requiredmodules-in-a-powershell-module-manifest-psd1.
+if (!(Get-Module -Name $ExistingAuthModule.Name -ListAvailable)) {
+    Install-Module $ExistingAuthModule.Name -Repository $RepositoryName -AllowPrerelease -Force
+}
 
 $ModulePrefix = "Microsoft.Graph"
+$ScriptRoot = $PSScriptRoot
 $ModulesOutputDir = Join-Path $PSScriptRoot "..\src\"
 $ArtifactsLocation = Join-Path $PSScriptRoot "..\artifacts"
-$RequiredGraphModules = @()
+$RequiredGraphModules = @(@{ ModuleName = $ExistingAuthModule.Name ; ModuleVersion = $ExistingAuthModule.Version })
 # PS Scripts
 $ManageGeneratedModulePS1 = Join-Path $PSScriptRoot ".\ManageGeneratedModule.ps1" -Resolve
 $BuildModulePS1 = Join-Path $PSScriptRoot ".\BuildModule.ps1" -Resolve
 $PackModulePS1 = Join-Path $PSScriptRoot ".\PackModule.ps1" -Resolve
-$PublishModulePS1 = Join-Path $PSScriptRoot ".\PublishModule.ps1" -Resolve
 $ReadModuleReadMePS1 = Join-Path $PSScriptRoot ".\ReadModuleReadMe.ps1" -Resolve
 $ValidateUpdatedModuleVersionPS1 = Join-Path $PSScriptRoot ".\ValidateUpdatedModuleVersion.ps1" -Resolve
 
@@ -46,25 +45,25 @@ if (-not (Test-Path $ArtifactsLocation)) {
 if (-not (Test-Path $ModuleMappingConfigPath)) {
     Write-Error "Module mapping file not be found: $ModuleMappingConfigPath."
 }
-# Install module locally in order to specify it as a dependency for other modules down the generation pipeline.
-# https://stackoverflow.com/questions/46216038/how-do-i-define-requiredmodules-in-a-powershell-module-manifest-psd1.
-$ExistingAuthModule = Find-Module "Microsoft.Graph.Authentication"
-Install-Module $ExistingAuthModule.Name -Repository $RepositoryName -AllowPrerelease -Force
-$RequiredGraphModules += @{ ModuleName = $ExistingAuthModule.Name ; ModuleVersion = $ExistingAuthModule.Version }
 if ($UpdateAutoRest) {
     # Update AutoRest.
     & autorest --reset
 }
-
 [HashTable] $ModuleMapping = Get-Content $ModuleMappingConfigPath | ConvertFrom-Json -AsHashTable
-$ModuleMapping.Keys | ForEach-Object -Begin { $RequestCount = 0 } -End { Write-Host -ForeGroundColor Green "Requests: $RequestCount" } {
+$ModuleMapping.Keys | ForEach-Object {
+    enum VersionState {
+        Invalid
+        Valid
+        EqualToFeed
+        NotOnFeed
+    }
     $ModuleName = $_
     $ModuleProjectDir = Join-Path $ModulesOutputDir "$ModuleName\$ModuleName"
 
     # Copy AutoRest readme.md config is none exists.
     if (-not (Test-Path "$ModuleProjectDir\readme.md")) {
         New-Item -Path $ModuleProjectDir -Type Directory -Force
-        Copy-Item (Join-Path $PSScriptRoot "\Templates\readme.md") -Destination $ModuleProjectDir
+        Copy-Item (Join-Path $ScriptRoot "\Templates\readme.md") -Destination $ModuleProjectDir
     }
 
     $ModuleLevelReadMePath = Join-Path $ModuleProjectDir "\readme.md" -Resolve
@@ -118,7 +117,7 @@ $ModuleMapping.Keys | ForEach-Object -Begin { $RequestCount = 0 } -End { Write-H
 
                 # Get profiles for generated modules.
                 $ModuleExportsPath = Join-Path $ModuleProjectDir "\exports"
-                $Profiles = Get-ChildItem -Path $ModuleExportsPath -Directory | %{ $_.Name}
+                $Profiles = Get-ChildItem -Path $ModuleExportsPath -Directory | % { $_.Name }
 
                 # Update module manifest wiht profiles.
                 $ModuleManifestPath = Join-Path $ModuleProjectDir "$ModulePrefix.$ModuleName.psd1"
@@ -127,7 +126,7 @@ $ModuleMapping.Keys | ForEach-Object -Begin { $RequestCount = 0 } -End { Write-H
 
                 # Update module psm1 with Graph session profile name.
                 $ModulePsm1 = Join-Path $ModuleProjectDir "/$ModulePrefix.$ModuleName.psm1"
-                (Get-Content -Path $ModulePsm1) | ForEach-Object{
+                (Get-Content -Path $ModulePsm1) | ForEach-Object {
                     $_
                     if ($_ -match '\$instance = \[Microsoft.Graph.PowerShell.Module\]::Instance') {
                         '  $instance.ProfileName = [Microsoft.Graph.PowerShell.Authentication.GraphSession]::Instance.SelectedProfile'
@@ -147,13 +146,6 @@ $ModuleMapping.Keys | ForEach-Object -Begin { $RequestCount = 0 } -End { Write-H
         catch {
             Write-Error $_.Exception
         }
-        $RequestCount++
     }
 }
-
-if ($Publish) {
-    # Publish generated modules.
-    & $PublishModulePS1 -Modules $ModuleMapping.Keys -ModulePrefix $ModulePrefix -ArtifactsLocation $ArtifactsLocation -RepositoryName $RepositoryName -RepositoryApiKey $RepositoryApiKey
-}
-
 Write-Host -ForegroundColor Green "-------------Done-------------"

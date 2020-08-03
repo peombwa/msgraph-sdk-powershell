@@ -30,7 +30,6 @@ require:
   - $(this-folder)/../../../profiles/$(title)/readme.md
 title: $(service-name)
 subject-prefix: ''
-
 ```
 
 ### Directives
@@ -51,19 +50,20 @@ directive:
       subject: SecurityAlert
       variant: Update1|UpdateExpanded1
     set:
-      subject: SecurityAlertMultiple
+      subject: MultipleSecurityAlert
   - where:
       verb: Update
       subject: SecurityTiIndicator
       variant: Update1|UpdateExpanded1
     set:
-      subject: SecurityTiIndicatorMultiple
+      subject: MultipleSecurityTiIndicator
 # Remove cmdlets
   - where:
       verb: Get|Update
       subject: Security
     remove: true
 ```
+
 ### Versioning
 
 ``` yaml

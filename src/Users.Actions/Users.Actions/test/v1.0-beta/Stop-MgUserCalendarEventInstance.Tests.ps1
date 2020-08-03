@@ -12,19 +12,19 @@ while(-not $mockingPath) {
 . ($mockingPath | Select-Object -First 1).FullName
 
 Describe 'Stop-MgUserCalendarEventInstance' {
-    It 'CancelExpanded1' -skip {
+    It 'CancelExpanded' -skip {
         { throw [System.NotImplementedException] } | Should -Not -Throw
     }
 
-    It 'Cancel1' -skip {
+    It 'Cancel' -skip {
         { throw [System.NotImplementedException] } | Should -Not -Throw
     }
 
-    It 'CancelViaIdentityExpanded1' -skip {
+    It 'CancelViaIdentityExpanded' -skip {
         { throw [System.NotImplementedException] } | Should -Not -Throw
     }
 
-    It 'CancelViaIdentity1' -skip {
+    It 'CancelViaIdentity' -skip {
         { throw [System.NotImplementedException] } | Should -Not -Throw
     }
 }

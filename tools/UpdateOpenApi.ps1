@@ -1,8 +1,8 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License.
 Param(
-    [string] $ModuleMappingConfigPath = (Join-Path $PSScriptRoot "..\config\ModulesMapping.jsonc"),
     [string] $OpenApiDocOutput = (Join-Path $PSScriptRoot "..\openApiDocs"),
+    [string] $ModuleMappingConfigPath,
     [switch] $BetaGraphVersion
 )
 
@@ -19,14 +19,22 @@ if ($BetaGraphVersion) {
     $GraphVersion = "beta"
 }
 
-$OpenApiDocOutput = Join-Path $OpenApiDocOutput $GraphVersion
-
-# PS Scripts
-$DownloadOpenApiDocPS1 = Join-Path $PSScriptRoot ".\DownloadOpenApiDoc.ps1" -Resolve
+if ([string]::IsNullOrWhiteSpace($ModuleMappingConfigPath)){
+    if ($BetaGraphVersion) {
+        $ModuleMappingConfigPath = (Join-Path $PSScriptRoot "..\config\ModulesMappingBeta.jsonc")
+    } else {
+        $ModuleMappingConfigPath = (Join-Path $PSScriptRoot "..\config\ModulesMappingV1.0.jsonc")
+    }
+}
 
 if (-not (Test-Path $ModuleMappingConfigPath)) {
     Write-Error "Module mapping file not be found: $ModuleMappingConfigPath."
 }
+
+$OpenApiDocOutput = Join-Path $OpenApiDocOutput $GraphVersion
+
+# PS Scripts
+$DownloadOpenApiDocPS1 = Join-Path $PSScriptRoot ".\DownloadOpenApiDoc.ps1" -Resolve
 
 [HashTable] $ModuleMapping = Get-Content $ModuleMappingConfigPath | ConvertFrom-Json -AsHashTable
 $ModuleMapping.Keys | ForEach-Object -Begin { $RequestCount = 0 } -End { Write-Host -ForeGroundColor Green "Requests: $RequestCount" } -Process {
@@ -36,6 +44,7 @@ $ModuleMapping.Keys | ForEach-Object -Begin { $RequestCount = 0 } -End { Write-H
     if ($RequestCount -eq 0){
         $ForceRefresh = $true
     }
+    $ForceRefresh = $false
 
     try {
         # Download OpenAPI document for module.

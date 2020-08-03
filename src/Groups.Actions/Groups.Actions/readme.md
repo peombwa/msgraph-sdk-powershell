@@ -30,11 +30,16 @@ require:
   - $(this-folder)/../../../profiles/$(title)/readme.md
 title: $(service-name)
 subject-prefix: ''
+```
 
+### Directives
+
+> see https://github.com/Azure/autorest/blob/master/docs/powershell/directives.md
+
+``` yaml
 directive:
 # Remove paths that have /parent* or /calendarView*.
   - remove-path-by-operation: groups.onenote..*.parent.*|groups.*.calendarView.*
-# Remove cmdlets.
   - where:
       verb: Test
       subject: ^GroupProperty$
@@ -45,6 +50,7 @@ directive:
       subject: ^GroupDynamicMembership$
       variant: ^Evaluate1$|^EvaluateExpanded1$
     remove: true
+# Rename cmdlets
   - where:
       verb: Get
       subject: ^Group$
@@ -76,6 +82,7 @@ directive:
     set:
       subject: $1Content
 ```
+
 ### Versioning
 
 ``` yaml

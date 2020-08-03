@@ -12,19 +12,19 @@ while(-not $mockingPath) {
 . ($mockingPath | Select-Object -First 1).FullName
 
 Describe 'New-MgUserCalendarEventAttachmentUploadSession' {
-    It 'CreateExpanded3' -skip {
+    It 'CreateExpanded2' -skip {
         { throw [System.NotImplementedException] } | Should -Not -Throw
     }
 
-    It 'Create3' -skip {
+    It 'Create2' -skip {
         { throw [System.NotImplementedException] } | Should -Not -Throw
     }
 
-    It 'CreateViaIdentityExpanded3' -skip {
+    It 'CreateViaIdentityExpanded2' -skip {
         { throw [System.NotImplementedException] } | Should -Not -Throw
     }
 
-    It 'CreateViaIdentity3' -skip {
+    It 'CreateViaIdentity2' -skip {
         { throw [System.NotImplementedException] } | Should -Not -Throw
     }
 }

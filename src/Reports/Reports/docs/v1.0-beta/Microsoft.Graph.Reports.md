@@ -1,6 +1,6 @@
 ---
 Module Name: Microsoft.Graph.Reports
-Module Guid: 9a19614b-830d-4660-a407-fc8f91e19e69
+Module Guid: 9b56e95a-2a3a-4e90-8900-2162191e52bd
 Download Help Link: https://docs.microsoft.com/en-us/powershell/module/microsoft.graph.reports
 Help Version: 1.0.0.0
 Locale: en-US
@@ -280,49 +280,4 @@ Invoke function managedDeviceEnrollmentFailureTrends
 
 ### [Invoke-MgTopReport](Invoke-MgTopReport.md)
 Invoke function managedDeviceEnrollmentTopFailures
-
-### [New-MgReportApplicationSign](New-MgReportApplicationSign.md)
-Create new navigation property to applicationSignInDetailedSummary for reports
-
-### [New-MgReportCredentialUserRegistrationDetail](New-MgReportCredentialUserRegistrationDetail.md)
-Create new navigation property to credentialUserRegistrationDetails for reports
-
-### [New-MgReportDailyPrintUsageSummaryByPrinter](New-MgReportDailyPrintUsageSummaryByPrinter.md)
-Create new navigation property to dailyPrintUsageSummariesByPrinter for reports
-
-### [New-MgReportDailyPrintUsageSummaryByUser](New-MgReportDailyPrintUsageSummaryByUser.md)
-Create new navigation property to dailyPrintUsageSummariesByUser for reports
-
-### [New-MgReportMonthlyPrintUsageSummaryByPrinter](New-MgReportMonthlyPrintUsageSummaryByPrinter.md)
-Create new navigation property to monthlyPrintUsageSummariesByPrinter for reports
-
-### [New-MgReportMonthlyPrintUsageSummaryByUser](New-MgReportMonthlyPrintUsageSummaryByUser.md)
-Create new navigation property to monthlyPrintUsageSummariesByUser for reports
-
-### [New-MgReportUserCredentialUsageDetail](New-MgReportUserCredentialUsageDetail.md)
-Create new navigation property to userCredentialUsageDetails for reports
-
-### [Update-MgReportApplicationSign](Update-MgReportApplicationSign.md)
-Update the navigation property applicationSignInDetailedSummary in reports
-
-### [Update-MgReportCredentialUserRegistrationDetail](Update-MgReportCredentialUserRegistrationDetail.md)
-Update the navigation property credentialUserRegistrationDetails in reports
-
-### [Update-MgReportDailyPrintUsageSummaryByPrinter](Update-MgReportDailyPrintUsageSummaryByPrinter.md)
-Update the navigation property dailyPrintUsageSummariesByPrinter in reports
-
-### [Update-MgReportDailyPrintUsageSummaryByUser](Update-MgReportDailyPrintUsageSummaryByUser.md)
-Update the navigation property dailyPrintUsageSummariesByUser in reports
-
-### [Update-MgReportMonthlyPrintUsageSummaryByPrinter](Update-MgReportMonthlyPrintUsageSummaryByPrinter.md)
-Update the navigation property monthlyPrintUsageSummariesByPrinter in reports
-
-### [Update-MgReportMonthlyPrintUsageSummaryByUser](Update-MgReportMonthlyPrintUsageSummaryByUser.md)
-Update the navigation property monthlyPrintUsageSummariesByUser in reports
-
-### [Update-MgReportRoot](Update-MgReportRoot.md)
-Update reports
-
-### [Update-MgReportUserCredentialUsageDetail](Update-MgReportUserCredentialUsageDetail.md)
-Update the navigation property userCredentialUsageDetails in reports
 

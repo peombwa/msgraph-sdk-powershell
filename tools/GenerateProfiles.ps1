@@ -6,17 +6,18 @@ Param(
 )
 try {
     # Install dependencies.
-    if (!(Get-Module "powershell-yaml" -ListAvailable -ErrorAction SilentlyContinue)){
+    if (!(Get-Module "powershell-yaml" -ListAvailable -ErrorAction SilentlyContinue)) {
         Install-Module "powershell-yaml"
     }
 
-    if(!(Test-Path -Path $OpenApiDocsDirectory)){
-        New-Item -Path $OpenApiDocsDirectory -ItemType Directory
+    if (!(Test-Path -Path $OpenApiDocsDirectory)) {
+        Write-Error "$OpenApiDocsDirectory is empty. The directory must have at least 1 OpenAPI document."
     }
 
-    if(!(Test-Path -Path $ProfilesDirectory)){
+    if (!(Test-Path -Path $ProfilesDirectory)) {
         New-Item -Path $ProfilesDirectory -ItemType Directory
     }
+
     $GetNationalCloudPS1 = Join-Path $PSScriptRoot ".\GetNationalCloud.ps1" -Resolve
 
     $openApiFiles = @{}
@@ -60,11 +61,11 @@ try {
                 Write-Host "Telemetry written at $telemetryDir" -ForegroundColor Blue
 
                 # Get profile.
-                $profile =  @{resources = @{}; operations = @{}}
+                $profileEntity =  @{resources = @{}; operations = @{}}
                 foreach ($operation in $crawlResult.operations.keys) {
-                    $profile.operations[$operation] = $crawlResult.operations[$operation].apiVersion
+                    $profileEntity.operations[$operation] = $crawlResult.operations[$operation].apiVersion
                 }
-                $profilesNode = @{profiles = @{ $profileName = $profile}}
+                $profilesNode = @{profiles = @{ $profileName = $profileEntity}}
                 $profilesInYaml = $profilesNode | ConvertTo-Yaml
                 $profileReadMeContent = @"
 # Microsoft Graph $profileName Profile
