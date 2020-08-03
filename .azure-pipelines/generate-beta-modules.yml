@@ -56,6 +56,7 @@ jobs:
       filePath: '$(System.DefaultWorkingDirectory)/tools/GenerateModules.ps1'
       arguments: ' -Build'
       pwsh: true
+    enabled: false
     
   - task: PowerShell@2
     displayName: 'Pack Modules'
@@ -69,6 +70,7 @@ jobs:
             & $(System.DefaultWorkingDirectory)/tools/PackModule.ps1 -Module $ModuleName -ArtifactsLocation $(ARTIFACT_DIRECTORY)
         }
       pwsh: true
+    enabled: false
   
   - task: NuGetAuthenticate@0
     displayName: 'NuGet Authenticate'
@@ -78,6 +80,7 @@ jobs:
       command: push
       publishVstsFeed: 'fcaf8b61-0c0d-4f11-926c-53e6d753fd77/PowerShell_Feed'
       allowPackageConflicts: true
+    enabled: false
       
   - task: PowerShell@2
     displayName: 'Register Package Feed'
@@ -105,7 +108,7 @@ jobs:
     displayName: 'Update: GitHub PR'
     inputs:
       comment: 'Install-Module with build # $(BUILD_NUMBER) from $(PS_DEV_FEED) to test.'
-      gitHubConnection: 'peombwa'
+      gitHubConnection: 'github.com_peombwa'
       repositoryName: '$(Build.Repository.Name)'
       id: 1
   
