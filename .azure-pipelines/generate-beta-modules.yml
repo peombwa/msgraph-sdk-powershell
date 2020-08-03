@@ -101,6 +101,14 @@ jobs:
         Find-Module Microsoft.Graph.People -Repository PowerShellFeed
      pwsh: true
   
+  - task: GitHubComment@0
+    displayName: 'Update: GitHub PR'
+    inputs:
+      comment: 'Install-Module with build # $(BUILD_NUMBER) from $(PS_DEV_FEED) to test.'
+      gitHubConnection: 'peombwa'
+      repositoryName: '$(Build.Repository.Name)'
+      id: 1
+  
   - task: PowerShell@2
     displayName: 'Register Package Feed'
     inputs:
