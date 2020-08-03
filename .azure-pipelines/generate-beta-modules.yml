@@ -112,6 +112,7 @@ jobs:
       comment: 'Install-Module with build number $(BUILD_NUMBER) from $(PS_DEV_FEED) to test.'
       gitHubConnection: 'github.com_peombwa'
       repositoryName: '$(Build.Repository.Name)'
+      id: '$(System.PullRequest.PullRequestId)'
   
   - task: PowerShell@2
     displayName: 'Register Package Feed'
@@ -120,6 +121,7 @@ jobs:
      script: |
         Install-Module Microsoft.Graph.People -Repository PowerShellFeed
      pwsh: true
+    enabled: false
   
   # - task: PublishBuildArtifacts@1
   #   displayName: Publish Artifact Beta Modules
